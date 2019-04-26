@@ -1,0 +1,652 @@
+/* pages/search/search.wxss */
+.searchBox{
+  width: 100%;
+  height: 60rpx;
+  position: absolute;
+  left: 0;
+  top: 18rpx;
+  z-index: 999;
+}
+.search{
+  width: 690rpx;
+  margin: 0 auto;
+  height: 60rpx;
+  border-radius: 30rpx;
+  background: #f7f7f7;
+}
+.searchInput{
+  width: 558rpx;
+  height: 60rpx;
+  color: #666666;
+  padding: 0;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  margin-left: 35rpx;
+  border: none;
+}
+.phcolor{
+  color: #999999;
+}
+.lineShu{
+  height: 30rpx;
+  width: 2rpx;
+  background: #999999;
+  margin-top: 16rpx;
+}
+.searchIcon{
+  width: 32rpx;
+  height: 33rpx;
+  margin-top: 17rpx;
+  margin-right: 44rpx;
+}
+
+.lineShu{
+  height: 30rpx;
+  width: 2rpx;
+  background: #999999;
+  margin-top: 16rpx;
+}
+.searchIcon{
+  width: 32rpx;
+  height: 33rpx;
+  margin-top: 14rpx;
+  margin-right: 30rpx;
+   position: absolute;
+  right: 40rpx;
+
+}
+
+.houSearch{
+  width: 92%;
+  margin: auto;
+  /* margin-top: 140rpx; */
+}
+.houSearch>view:nth-child(1){
+  padding: 30rpx 0;
+  font-size: 30rpx;
+  color: #333333;
+  display: flex;
+  justify-content: space-between
+}
+.houSearch>view:nth-child(2){
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.houSearch>view:nth-child(2)>label{
+  font-size: 30rpx;
+  color: #333333;
+  border-radius: 44px 44px 44px 44px;
+  padding: 15rpx 30rpx;
+  background: #f8f8f8;
+  margin-right: 25rpx;
+  margin-bottom: 20rpx;
+} 
+.searchBox{
+  width: 100%;
+  display: flex;
+  padding: 30rpx 0;
+  align-items: center;
+}
+.page-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  border-top: 1rpx solid #e2e2e2
+}
+/* tab切换 */
+.list{
+  width: 100%;
+  height: 120rpx;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  box-shadow:0 10rpx 20rpx #eee;
+  /* border-bottom: 1rpx solid #e2e2e2; */
+  background: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999
+}
+.list>view{
+  width: 92%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+  background: #ffffff;
+   z-index: 9999999
+}
+.list>view>view{
+  padding: 30rpx 0;
+
+}
+/* tab切换样式 */
+.swiper-tab-list {
+  font-size: 30rpx;
+  position: relative;
+}
+.on{
+  color: #53a2ef;
+  font-weight: 600;
+  font-size: 36rpx;
+  /* border-bottom: 5rpx solid #53a2ef; */
+}
+.solid{
+  width: 100%;
+  background: #53a2ef;
+  height: 6rpx;
+  border-radius: 40rpx 40rpx 40rpx 40rpx;
+  position: absolute;
+  left: 0;
+  top: 95rpx;
+
+
+}
+.fix-news{
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 99999;
+}
+/* 相关疾病 */
+.related,.docTorInfo,.relatedvideo,.relatedask,.relatedAudio,.relatedarticle{
+  background: #ffffff;
+  width: 100%;
+}
+.relatedAudio,.relatedarticle{
+  margin-top: 20rpx;
+}
+.related_box{
+  width: 92%;
+  margin: auto;
+}
+.title{
+  width: 92%;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  padding-top: 30rpx;
+  padding-bottom: 10rpx;
+}
+.title>text:nth-child(1){
+  font-size: 34rpx;
+}
+.title>text:nth-child(2){
+  font-size: 26rpx;
+  color: #999999;
+}
+.illness{
+  padding: 20rpx 0;
+  border-bottom: #e2e2e2 solid 1rpx;
+  font-size: 28rpx;
+}
+.related_box>view:last-child{
+  border: none;
+}
+/* 相关医生 */
+.relatedDoctor>.relatedDoctorBox{
+  width: 92%;
+  margin: auto;
+}
+.relatedDoctor{
+  width: 100%;
+}
+.docTorInfoBox{
+  width: 92%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #e2e2e2;
+}
+.doctorPic>image{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+}
+.doctorName{
+  margin-left: 20rpx;
+}
+.doctorName>view:nth-child(1)>text:nth-child(1){
+  font-size: 34rpx;
+  color: #333333;
+  margin-right: 20rpx
+}
+.doctorName>view:nth-child(1)>text:nth-child(2){
+  font-size: 30rpx;
+  color: #666666;
+}
+.doctorName>view:nth-child(2)>text:nth-child(1){
+  font-size: 28rpx;
+  color: #999999;
+  margin-right: 20rpx
+}
+.doctorName>view:nth-child(2)>text:nth-child(2){
+  font-size: 28rpx;
+  color: #999999;
+}
+.doctorName>view:nth-child(3){
+  display: flex;
+  align-items: center;
+  padding-top: 10rpx;
+}
+.doctorName>view:nth-child(3)>text:nth-child(1){
+  font-size: 28rpx;
+  color: #53a2ef;
+  white-space: nowrap;
+}
+.doctorName>view:nth-child(3)>text:nth-child(2){
+   font-size: 30rpx;
+  color: #999999;
+}
+.doctorName>view:nth-child(3)>text:nth-child(3){
+  width: 460rpx;
+  font-size: 28rpx;
+  color: #999999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* 相关视频 */
+.msgList{
+  width: 100%;
+  background: #ffffff;
+}
+/* .msgList_box{
+  width: 90%;
+  margin: auto;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #e2e2e2;
+} */
+.msgList_title{
+  width: 100%;
+  display: flex;
+  /* align-items: center; */
+}
+.msgList_title .video{
+  width: 50rpx;
+  height: 35rpx;
+  border: 1rpx solid #4cd093;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 35rpx;
+  color:#4cd093;
+  padding: 0 8rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+.msgList_title .question{
+  width: 50rpx;
+  height: 35rpx;
+  border: 1rpx solid #ff952d;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 35rpx;
+  color:#ff952d;
+  padding: 0 8rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+.msgList_title .audio{
+  width: 50rpx;
+  height: 35rpx;
+  border: 1rpx solid #4c9dee;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 35rpx;
+  color:#4c9dee;
+  padding: 0 8rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+.msgList_title .problem{
+  font-size: 32rpx;
+}
+.msgList_msg{
+  margin-top: 30rpx;
+}
+/* 问答样式 */
+.msgList_answer{
+  display: flex;
+  margin-top: 25rpx;
+}
+.msgList_answer .articles{
+  flex: 1;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: #666666;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 2; /** 显示的行数 **/
+  overflow: hidden;  /** 隐藏超出的内容 **/
+  line-height: 44rpx;
+}
+.msgList_answer .article{
+  flex: 1;
+  font-size: 28rpx;
+  color: #666666;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 2; /** 显示的行数 **/
+  overflow: hidden;  /** 隐藏超出的内容 **/
+  line-height: 44rpx;
+}
+.msgList_answer image{
+  width: 30rpx;
+  height: 35rpx;
+  margin-top: 10rpx;
+}
+.msgList_title image{
+  width: 30rpx;
+  height: 35rpx;
+  padding-top: 7rpx;
+  margin-right: 20rpx;
+}
+/* 问答样式 */
+
+/* 音频样式 */
+.msgList_audio{
+  display: flex;
+  margin-top: 30rpx;
+  align-items: center;
+}
+.msgList_audio .answerlogo{
+  width: 32rpx;
+  height: 35rpx;
+}
+.msgList_audio .audio_time{
+  width: 424rpx;
+  height: 64rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f3f3f3;
+  border-radius: 8rpx;
+  margin-left: 20rpx;
+}
+.audio_time image{
+  width: 32rpx;
+  height: 32rpx;
+}
+.audio_time .timertext{
+  font-size: 24rpx;
+  color: #333333;
+  margin-left: 38rpx; 
+}
+.audio_time .timer{
+  font-size: 24rpx;
+  color: #f19536;
+  margin-left: 38rpx; 
+}
+.msgList_audio .audiohot{
+  display: flex;
+  font-size: 22rpx;
+  color: #999999;
+  margin-left: 35rpx;
+}
+.msgList_audio .audiohot image{
+  width: 40rpx;
+  height: 26rpx;
+  margin-right: 5rpx;
+}
+
+/* 音频样式 */
+/* 文章样式 */
+.msgList_article{
+  flex: 1;
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  color: #666666;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 2; /* 显示的行数 */
+  overflow: hidden;  /** 隐藏*/
+}
+/* 文章样式 */
+.msgList_msg view:nth-child(1){
+  width: 92%;
+  margin: auto;
+  position: relative;
+}
+.msgList_msg view:nth-child(2){
+  flex: 1;
+  height: 80rpx;
+  margin-left: 28rpx;
+  font-size: 28rpx;
+  color: #666666;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 4; /* 显示的行数 */
+  overflow: hidden; 
+   letter-spacing:1rpx;
+}
+
+.msgList_msg .times{
+  width: 80rpx;
+  height: 30rpx;
+  border-radius: 44px;
+  background: rgba(0,0,0,.3);
+  font-size: 20rpx;
+  text-align: center;
+  line-height: 30rpx;
+  color: #ffffff;
+  position: absolute;
+  right: 10rpx;
+  bottom: 10rpx;
+}
+.msgList_msg .Listplay{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  left: 35%;
+  top: 30%;
+}
+/* 音频 视频 问答 文章 各自样式 */
+.msgList_doctor{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.msgList_doctor text{
+  margin-left: 20rpx;
+}
+.msgList_doctor image{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+.msgList_doctor .doctorName{
+  display: block;
+  font-size: 30rpx;
+  white-space: nowrap;
+  color: #333333
+}
+.msgList_doctor .zhiwei{
+  display: block;
+  font-size: 26rpx;
+  color: #666666;
+  /* padding: 0 10rpx; */
+    /* overflow: hidden; */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* padding-top: 5rpx; */
+
+}
+.msgList_doctor .hospita{
+  display: block;
+  font-size: 26rpx;
+  color: #999999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* padding-top: 5rpx; */
+
+}
+.titles{
+  width: 92%;
+  margin: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding-top: 30rpx;
+}
+.titles image{
+  width: 32rpx;
+  height: 32rpx;
+  margin-top: 10rpx;
+}
+.titles text:nth-child(2){
+  font-size: 32rpx;
+  color: #000000;
+  margin-left: 20rpx;
+  font-weight: 500;
+}
+.titles text:nth-child(3){
+  font-size: 26rpx;
+  color: #999999;
+  position: absolute;
+  right: 0;
+}
+.nomsg{
+  width: 100%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nomsg>view{
+  margin:auto;
+  text-align: center;
+  font-size: 30rpx;
+  color: #999999;
+  margin-top: 300rpx;
+}
+.nomsg>view>image{
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.nomsg2{
+  width: 100%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nomsg2>view{
+  margin:auto;
+  text-align: center;
+  font-size: 30rpx;
+  color: #999999;
+  margin-top: 200rpx;
+}
+.nomsg2>view>image{
+  width: 200rpx;
+  height: 200rpx;
+}
+
+
+.videoBox{
+  width:100%;
+  background:#ffffff;
+  
+}
+.videoBox .msgList_box{
+  width:100%;
+  margin:auto;
+ border-bottom: 20rpx solid rgba(144,144,144,0.1)
+}
+.videoBox .msgList_title{
+  width: 92%;
+  margin: auto;
+  padding-top: 20rpx;
+  display:flex;
+  /* padding-left:33rpx; */
+  align-items:center;
+  font-size:32rpx;
+  color:#333333;
+}
+.videoBox .msgList_msg image {
+  width:100%;
+  height:422rpx;
+
+}
+.videoBox .msgList_msg .times{
+  width:102rpx;
+  height:48rpx;
+  border-radius:44px;
+  background:rgba(0,0,0,.2);
+  font-size:26rpx;
+  text-align:center;
+  line-height:48rpx;
+  color:#ffff;
+  position:absolute;
+  bottom:25rpx;
+  right:20rpx;
+}
+.videoBox .msgList_msg .Listplay{
+  width:70rpx;
+  height:70rpx;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+}
+.videoBox .msgList_doctor{
+  width:92%;
+  display:flex;
+  margin:auto;
+  align-items:center;
+  padding-top:20rpx;
+  padding-bottom:40rpx;
+}
+.msgList .msgList_box {
+  width:92%;
+margin:auto;
+padding:30rpx 0;
+border-bottom:1rpx solid #e2e2e2;
+
+}
+
+.searchRecord{
+  width: 92%;
+  margin: auto;
+  padding: 20rpx 0;
+  font-size: 30rpx;
+  color: #333333;
+  display: flex;
+  justify-content: space-between;
+}
+.searchRecord image{
+  width: 46rpx;
+  height: 50rpx;
+}
+.recordMsg{
+  width: 92%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+.recordMsg > label{
+ font-size:30rpx;
+  color:#333333;
+  border-radius:44px 44px 44px 44px;
+  padding:15rpx 30rpx;
+  background:#f8f8f8;
+  margin-right:25rpx;
+  margin-bottom:20rpx;
+}

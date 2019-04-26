@@ -1,0 +1,264 @@
+.page-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background: #f8f8f8;
+}
+.answerLogo>image{
+  width: 100%;
+  height: 220rpx;
+}
+/* 文本域样式 */
+.textArea{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #ffffff;
+  color: #666666;
+ 
+}
+.textArea textarea{
+  width: 90%;
+  margin: auto;
+  background: #ffffff;
+  font-size: 28rpx;
+  margin-top: 42rpx;
+  letter-spacing:3rpx;
+  border-bottom: 1rpx solid  #e2e2e2;
+   color: #666666
+}
+/* 图片上传 */
+.uploadimg{
+  width: 100%;
+  height: 130rpx;
+  margin: auto;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+}
+.uploadimgBox{
+  width: 90%;
+  display: flex;
+  margin: auto;
+}
+.addImg{
+  width: 84rpx;
+  height: 84rpx;
+  z-index: 999;
+}
+.addImg2{
+  width: 84rpx;
+  height: 84rpx;
+  z-index: 999;
+}
+.addImg image{
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.addImgMsg{
+  font-size: 22rpx;
+  color: #999999;
+}
+.addImgMsg text{
+  display: block;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+
+}
+
+/* 患者问答信息 */
+.patientMsg{
+  width: 100%;
+  background: #fffffF;
+  margin-top: 20rpx;
+}
+.patientMsg>view{
+  width: 90%;
+  height: 90rpx;
+  font-size:32rpx; 
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom:1rpx solid  #e2e2e2;
+}
+.patientMsg .phone{
+  border: none;
+}
+.patientMsg view>text{
+  width: 50%;
+}
+.patientMsg view>view{
+  width: 50%;
+  display: flex;
+  justify-content:space-between;
+}
+.patientMsg view>view>input{
+  width: 100%;
+  height: 100%;
+  font-size: 28rpx;
+  color: #666666;
+  text-align: right;
+}
+/* 单选样式 */
+.radio{
+  display: inline-block;
+  width: 96rpx;
+  height: 48rpx;
+  font-size: 26rpx;
+  border-radius: 44rpx 44rpx 44rpx 44rpx;
+  border: 1rpx solid  #e2e2e2;
+  margin-left: 20rpx;
+  text-align: center;
+  line-height: 48rpx;
+  letter-spacing:3rpx;
+}
+.on{
+  background: linear-gradient(#6EAFF7, #6E9FF7);
+  color: #ffffff;
+  border: none;
+}
+.patientMsg>label:nth-child(1){
+  margin-left: 30rpx;
+}
+/* 单选样式 */
+/* 提交按钮 */
+.commit{
+  width: 90%;
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  color: #ffffff;
+  font-size: 36rpx;
+  background: linear-gradient(#6EAFF7, #6E9FF7);
+  border: none;
+  margin-top: 40rpx;
+  border-radius: 10rpx;
+}
+.addpic{
+  width: 84rpx;
+  height: 84rpx;
+  margin-right: 10rpx;
+}
+
+/*自定义tabbar样式*/
+.tabbar{
+  position: fixed;
+  display: -webkit-box;
+	display: -moz-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	bottom: 0;
+  left: 0;
+  right: 0rpx;
+  background-color: #ffffff;
+  height: 96rpx;
+  width: 100%;
+  border-top: 2rpx solid  #e2e2e2;
+}
+.barBtn{
+  flex: 1;
+}
+.btnIcon{
+  width: 46rpx;
+  height: 46rpx;
+  margin: 12rpx auto 10rpx;
+}
+.btnName{
+  font-size: 20rpx;
+  color: #999999;
+  line-height: 20rpx;
+  text-align: center;
+}
+.active{
+  color: #53a2ef;
+}
+
+
+
+/*模态窗口*/
+.modal{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0,0.6)
+}
+.dialogue{
+  width: 564rpx;
+  height: 440rpx;
+  border-radius: 16rpx;
+  margin: 198rpx auto 0;
+  padding-top: 84rpx;
+  background-color: #ffffff;
+  position: relative;
+}
+.close{
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  top: 30rpx;
+  right: 30rpx;
+}
+.diaPicBox{
+  width: 100%;
+  height: 160rpx;
+}
+.diaPic{
+  width: 140rpx;
+  height: 140rpx;
+  margin: 0 auto;
+}
+.prompt{
+  width: 100%;
+  text-align: center;
+  margin-top: 10rpx;
+}
+.proTitle{
+  font-size: 46rpx;
+  color: #3c3d41;
+  font-weight: 600;
+  line-height: 70rpx;
+}
+.time{
+  color: #898989;
+  font-size:24rpx;
+  line-height: 30rpx;
+  margin-top: 10rpx
+}
+.button{
+  width: 500rpx;
+  height: 94rpx;
+  margin: 44rpx auto 0;
+}
+.check{
+  font-size: 36rpx;
+  color: #ffffff;
+  background-color: #FF0036;
+}
+
+
+/* 错误提示 */
+.msgBox{
+  width: 300rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  left: 50%;
+  margin-left: -150rpx;
+  top: 36%;
+  line-height: 70rpx;
+  text-align: center;
+}
+.errorMsg{
+  font-size: 26rpx;
+}

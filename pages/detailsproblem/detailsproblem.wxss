@@ -1,0 +1,80 @@
+/* pages/detailsproblem/detailsproblem.wxss */
+.page-body {
+  width: 100%;
+  border-top: 1rpx solid #e2e2e2;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.problem{
+  width: 90%;
+  margin: auto;
+  padding: 40rpx 0;
+  border-bottom: 1rpx solid #e2e2e2;
+}
+.problem>view:nth-child(1){
+  font-size: 32rpx;
+  color: #333333;
+}
+.problem>view:nth-child(2){
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20rpx 0;
+}
+.problem>view:nth-child(2)>image{
+  width: 210rpx;
+  height: 210rpx;
+  margin: 0 5rpx;
+  margin-top: 10rpx;
+}
+.problem>view:nth-child(3){
+  width: 100%;
+  font-size: 24rpx;
+  color: #999999;
+  padding-top: 10rpx;
+}
+.reply{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  padding: 40rpx 0;
+
+}
+.reply>view:nth-child(1){
+  width: 80rpx;
+  height: 80rpx;
+}
+.reply>view:nth-child(2){
+  flex: 1;
+  margin-left: 18rpx;
+}
+.reply>view:nth-child(2)>view:nth-child(1)>text{
+  font-size: 32rpx;
+  color: #333333;
+} 
+.reply>view:nth-child(2)>view:nth-child(2)>text{
+  font-size: 26rpx;
+  color: #999999;
+  margin-right: 18rpx;
+} 
+.reply>view:nth-child(1) image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.reply_tetx{
+  width: 90%;
+  margin: auto;
+}
+.reply_tetx>view:nth-child(1){
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.5
+}
+.reply_tetx>view:nth-child(2){
+  font-size: 24rpx;
+  color: #666666;
+  margin-top: 30rpx;
+}

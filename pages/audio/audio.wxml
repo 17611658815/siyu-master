@@ -1,0 +1,123 @@
+<!--pages/audio/audio.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+<scroll-view scroll-y="true" bindscrolltolower="pullUpLoad">
+  <view class='page-body'>
+    <!-- 疾病信息 -->
+    <view class='color'>
+      <view class='videoTitle'>
+        <view>{{audioList.yinpin.title}}</view>
+        <view>
+          <text>{{audioList.yinpin.created}}</text>
+          <text>{{audioList.yinpin.pv}}</text>
+          <text>人听过</text>
+        </view>
+      </view>
+    </view>
+    <!-- 疾病信息 -->
+    <!-- 专家信息 -->
+    <view class='doctorInfo'>
+      <view class='InfoBox' data-id="{{audioList.doctor.id}}" bindtap='godoctorHomeanswer'>
+        <view>
+          <image src='{{audioList.doctor.avatar}}'></image>
+        </view>
+        <view>
+          <view>
+            <text>{{audioList.doctor.name}}</text>
+            <text>{{audioList.doctor.position}}</text>
+          </view>
+          <view>
+            <text>{{audioList.doctor.hospital}}</text>
+            <text>{{audioList.doctor.department}}</text> </view>
+        </view>
+      </view>
+      <!-- 音频播放开关  -->
+      <view class='audiosBox'>
+        <audio src="{{audioList.yinpin.yinpin}}" id="myAudio" bindtimeupdate="updata"></audio>
+        <view class="audioOpen" bindtap="audioPlay" wx:if="{{!isOpen}}">
+          <image class='image2' src="../../images/play.png" />
+        </view>
+        <view class="audioOpen" bindtap="audioPause" wx:if="{{isOpen}}">
+          <image src="../../images/pauses.png" />
+        </view>
+        <view class='slid'>
+          <slider bindchange="sliderChange"  block-size="12px" step="2" value="{{offset}}" max="{{max}}" selected-color="#4c9dee" />
+          <view>
+            <text class='times'>{{starttime}}</text>
+            <!-- <text class='times'>{{ "0" + (((audioList.yinpin.yinpin_duration)/60)|Int)}}:{{(audioList.yinpin.yinpin_duration)%60<10 ? "0"+((audioList.yinpin.yinpin_duration)%60) : ((audioList.yinpin.yinpin_duration)%60)}}</text> -->
+              <text class='times'>{{audioList.yinpin.yinpin_duration}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 音频播放开关 -->
+      <!-- 音频内容 -->
+      <view class='title'>
+        <view>
+          音频内容
+        </view>
+        <view>
+          <!-- {{audioList.yinpin.content}} -->
+           <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+        </view>
+      </view>
+    </view>
+    <!-- 相关推荐 -->
+    <view class='recommended' wx:if="{{audioList.relevant.length>0}}">
+      <view class='recommended-title'>相关音频</view>
+      <!-- 音频 -->
+      <view class='msgList'>
+        <view class='msgList_box' bindtap='goAudio' data-id="{{item.id}}" wx:for="{{audioList.relevant}}" wx:key='key'>
+          <view class='msgList_title'>
+            <image src='../../images/problem.png'></image>
+            <text class='problem'>{{item.title}}</text>
+          </view>
+          <view class='msgList_audio'>
+            <image class='answerlogo' src='../../images/da.png'></image>
+            <!-- 音频时长 -->
+            <view class='audio_time'>
+              <image src='../../images/audio.png'></image>
+              <text class='timertext'>语音时长</text>
+              <text class='timer'>{{item.yinpin_duration}}</text>
+            </view>
+            <!-- 音频播放量 -->
+            <view class='audiohot'>
+              <image src='../../images/headset.png'></image>
+              {{item.pv}}
+            </view>
+          </view>
+          <view class='msgList_doctor'>
+            <image src='{{item.doctor.avatar}}'></image>
+            <text class='doctorName'>{{item.doctor.name}}</text>
+            <text class='zhiwei'>{{item.doctor.position}}</text>
+            <text class='hospita'>{{item.doctor.hospital}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 音频 -->
+    </view>
+   <view class='loadingStyle' style="display:{{isHide}};">加载中...</view>
+     <view class='BottomTost' wx:if="{{TostShow}}">我是有底线的~</view>
+    <!-- 相关推荐 -->
+  </view>
+</scroll-view>
+
+
+
+
+<view class="tabbar">
+  <view class="barBtn clearfix" bindtap='goidnex'>
+    <button class="btnName db">
+      <view class='iconBox'>
+        <image class="btnIcon db" src="../../images/sy.png"></image>
+      </view>
+      首页
+    </button>
+  </view>
+  <view class="barBtn clearfix">
+    <button class="btnName db" bindtap="onShareAppMessage" open-type='share'>
+      <view class='iconBox'>
+        <image class="btnIcon2 db" src="../../images/fx.png"></image>
+      </view>
+      分享
+    </button>
+  </view>
+</view>

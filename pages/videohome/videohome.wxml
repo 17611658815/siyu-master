@@ -1,0 +1,59 @@
+<scroll-view class="content" style="width:100%;height: 100%;" scroll-y="true" bindscroll="scrollTopFun">
+
+  <view class="page-body">
+    <view class="top">
+      <image src='../../images/sp-banner.jpg'></image>
+    </view>
+
+    <view class="illnessListBox">
+      <view class="illnessListTitle clearfix">
+        <image src='../../images/jbicon.png'></image>
+        <text class="illnessListName db fl">按疾病找视频</text>
+        <text class="illnessListRight db fr" bindtap='goTodiseaseList'>更多></text>
+      </view>
+      <view class="illnessList">
+        <block>
+          <text wx:for="{{illnessList}}" data-illnessId='{{item.id}}' data-name="{{item.name}}" bindtap="goToDisease" class="illnessName db fl" wx:key='key'>{{item.name}}</text>
+        </block>
+      </view>
+    </view>
+
+    <!-- 视频样式 -->
+    <view class='msgList'>
+      <view class='nav_title'>
+        <image class='tuijian' src='../../images/new.png'></image>
+        <text>最新视频</text>
+      </view>
+         <view class='msgList_box' wx:for="{{homeList}}" data-id="{{item.id}}" wx:key='key' bindtap='goToDetails'>
+       
+        <view class='msgList_msg'>
+          <view>
+            <image src='{{item.thumb}}'></image>
+            <text class='times' wx:if="{{item.duration != ''}}">{{item.duration}}</text>
+            <image class='Listplay' src='../../images/Listplay.png'></image>
+          </view>
+        </view>
+         <view class='msgList_title'>
+          <text>{{item.title}}</text>
+        </view>
+        <view class='msgList_doctor'>
+          <image wx:if="{{item.doctor != false}}" src='{{item.doctor.avatar}}'></image>
+          <text wx:if="{{item.doctor != false}}" class='doctorName'>{{item.doctor.name}}</text>
+          <text wx:if="{{item.doctor != false}}" class='zhiwei'>{{item.doctor.position}}</text>
+          <text wx:if="{{item.doctor != false}}" class='hospita'>{{item.doctor.hospital}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 视频样式 -->
+
+  </view>
+
+  <view class='loadingStyle' style="display:{{isHide}};">加载中...</view>
+  <view class='BottomTost' wx:if="{{TostShow}}">我是有底线的~</view>
+   
+
+</scroll-view>
+
+<view class='fixedIcon' wx:if='{{goHome}}'>
+啊哈哈哈哈哈
+</view>

@@ -1,0 +1,33 @@
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="searchBox" bindtap='goToSearch'>
+    <view class="search clearfix">
+      <input class="searchInput fl" placeholder-class="phcolor" placeholder="搜疾病 / 症状 / 医生"></input>
+      <text class="lineShu db fl"></text>
+      <image class="searchIcon fr" src="../../images/search.png"></image>
+    </view>
+  </view>
+  <view class="diseaseList">
+    <scroll-view scroll-y="true" class="menu">
+      <view class="blocks" wx:for="{{first}}" wx:for-item="item" wx:for-index="i" wx:key='key'>
+        <view catchtap="selectMenuAct"  data-id="{{item.id}}" class='menu-item-box'>
+          <view class="menu-item {{ item.select && showOrhide || scrollNum == item.id ? 'selected':''}}">
+            <text class="menu-title db" >{{item.name}}</text>
+            <view class="arrowBox" wx:if="{{item.hasSecend}}">
+              <image catchtap="selectMenuAct" class="menuArrow db" src="../../images/upimg.png" wx:if="{{item.select && showOrhide}}"></image>
+              <image catchtap="selectMenuAct" class="menuArrow db" src="../../images/donimg.png" wx:else></image>
+            </view>
+          </view>
+        </view>
+        <view class='menu-detail' wx:if="{{item.select && showOrhide && hasSecend}}">
+          <view class="menu-detail-item {{(item.select && showOrhide) || (item.id == scrollNum && showOrhide ) ? '':''}}">
+            <view class='text-box' wx:for="{{secend}}" wx:for-item="son" wx:for-index="j" wx:key='key'>
+              <text class="{{son.id == sonid ? 'small-title-active':'son_name'}}" data-sonid="{{son.id}}" bindtap="goillness" data-id="{{item.id}}-{{son.id}}">{{son.name}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view style='height:43px;'></view>
+    </scroll-view>
+  </view>
+</view>

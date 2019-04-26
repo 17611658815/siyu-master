@@ -1,0 +1,41 @@
+<view class='page-body'>
+  <view class="userInfo">
+    <image class="mineBg db fl" src="../../images/bg.png"></image>
+    <view class="user">
+      <view class="picBox">
+        <view>
+          <view>
+            <view>
+              <view>
+                <image class='userPic' src='{{userPic}}'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='userName'>{{userName}}</view>
+    </view>
+  </view>
+  <view class="msgBox">
+
+    <!-- <navigator url="../../pages/mayquestions/mayquestions" class="msgList clearfix boder">
+      <image class="tagPic db fl" src="../../images/mayquestions.png"></image>
+      <text class="msgTitle db fl">我的提问</text>
+      <image class="arrowRight db fr" src="../../images/arrowRight.png"></image>
+    </navigator> -->
+
+    <navigator url="../../pages/attentionDoctor/attentionDoctor" class="msgList clearfix ">
+      <image class="tagPic db fl" src="../../images/guanzhuyisheng.png"></image>
+      <text class="msgTitle db fl">我关注的专家</text>
+      <image class="arrowRight db fr" src="../../images/arrowRight.png"></image>
+    </navigator>
+  </view>
+  <view class="msgBox2">
+    <navigator url="../../pages/feedback/feedback" style="boder:none" class="msgList clearfix">
+      <image class="tagPic db fl" src="../../images/feedback.png"></image>
+      <text class="msgTitle db fl">意见反馈</text>
+      <image class="arrowRight db fr" src="../../images/arrowRight.png"></image>
+    </navigator>
+  </view>
+
+</view>

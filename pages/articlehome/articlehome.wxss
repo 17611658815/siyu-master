@@ -1,0 +1,347 @@
+/*pages/index/index.wxss*/
+.page-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.top image{
+  width: 100%;
+  height: 210rpx;
+}
+/* 热门疾病样式 */
+.illnessListBox{
+  width: 100%;
+  height: 410rpx;
+  background: #ffffff;
+  flex-wrap: wrap;
+  /* border-bottom: 1rpx solid #D1D1D1; */
+}
+.illnessListBox2{
+  width: 100%;
+  background: #ffffff;
+  flex-wrap: wrap;
+  padding-top: 30rpx;
+  padding-bottom: 40rpx;
+  /* border-bottom: 1rpx solid #D1D1D1; */
+}
+.illnessListTitle{
+  width: 690rpx;
+  height: 100rpx;
+  margin: 0 auto;
+  padding: 10rpx 0 ;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.illnessListIcon{
+  width: 35rpx;
+  height: 34rpx;
+  margin-top: 33rpx;
+  margin-right: 20rpx;
+}
+.illnessListTitle image{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 20rpx;
+}
+.illnessListName{
+  font-size: 36rpx;
+  color: #333333;
+  line-height: 100rpx;
+  font-weight: 600
+}
+.illnessListRight{
+  font-size: 24rpx;
+  line-height: 100rpx;
+  color: #999999;
+  position: absolute;
+  right: 0
+}
+.illnessList{
+  width: 95%;
+  margin: auto;
+  padding: 0 30rpx;
+}
+.illnessName{
+  width: 21.9%;
+  height: 70rpx;
+  border-radius: 4rpx;
+  background: #f8f8f8;
+  margin-right: 22rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  color: #333333;
+  text-align: center;
+  line-height: 68rpx;
+  text-overflow: ellipsis; 
+  white-space:nowrap;
+  overflow:hidden;
+}
+.illnessName2{
+  width: 21.9%;
+  height: 70rpx;
+  border-radius: 4rpx;
+  background: #f8f8f8;
+  margin-right: 22rpx;
+  font-size: 28rpx;
+  color: black;
+  text-align: center;
+  line-height: 68rpx;
+  text-overflow: ellipsis; 
+  white-space:nowrap;
+  overflow:hidden;
+  margin-top: 20rpx;
+}
+.slide{
+  width: 92%;
+  margin: auto;
+  background: #D1D1D1;
+  height: 1rpx;
+}
+.active{
+  background: #53a2ef;
+  color: #ffffff;
+}
+/*模态窗口*/
+.modal{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0,0.6)
+}
+.dialogue{
+  width: 564rpx;
+  height: 440rpx;
+  border-radius: 16rpx;
+  margin: 198rpx auto 0;
+  padding-top: 84rpx;
+  background-color: #ffffff;
+  position: relative;
+}
+.close{
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  top: 30rpx;
+  right: 30rpx;
+}
+.diaPicBox{
+  width: 100%;
+  height: 160rpx;
+}
+.diaPic{
+  width: 140rpx;
+  height: 140rpx;
+  margin: 0 auto;
+}
+.prompt{
+  width: 100%;
+  text-align: center;
+  margin-top: 10rpx;
+}
+.proTitle{
+  font-size: 46rpx;
+  color: #3c3d41;
+  font-weight: 600;
+  line-height: 70rpx;
+}
+.time{
+  color: #898989;
+  font-size:24rpx;
+  line-height: 30rpx;
+  margin-top: 10rpx
+}
+.button{
+  width: 500rpx;
+  height: 94rpx;
+  margin: 44rpx auto 0;
+}
+.check{
+  font-size: 36rpx;
+  color: #ffffff;
+  background-color: #FF0036;
+}
+/* 问答样式 */
+.msgList{
+  width: 100%;
+  background: #ffffff;
+  border-top:20rpx solid rgba(144,144,144,0.1);
+}
+
+
+.msgList_box{
+  width: 92%;
+  margin: auto;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #e2e2e2;
+}
+.msgList_answer{
+  display: flex;
+  margin-top: 25rpx;
+}
+.msgList_answer .articles{
+  flex: 1;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: #666666;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 2; /** 显示的行数 **/
+  overflow: hidden;  /** 隐藏超出的内容 **/
+  line-height: 44rpx;
+}
+.msgList_answer .article{
+  flex: 1;
+  font-size: 28rpx;
+  color: #666666;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 2; /** 显示的行数 **/
+  overflow: hidden;  /** 隐藏超出的内容 **/
+  line-height: 44rpx;
+}
+.msgList_answer image{
+  width: 30rpx;
+  height: 35rpx;
+  margin-top: 10rpx;
+}
+.msgList_title image{
+  width: 30rpx;
+  height: 35rpx;
+  margin-right: 20rpx;
+}
+.msgList_title{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.msgList_title .problem{
+  font-size: 32rpx;
+}
+/* 问答样式 */
+
+/* 音频 视频 问答 文章 各自样式 */
+.msgList_doctor{
+  width: 100%;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  padding-top: 25rpx;
+}
+.msgList_doctor text{
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}
+.msgList_doctor image{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+.msgList_doctor .doctorName{
+  display: block;
+  font-size: 30rpx;
+  white-space: nowrap;
+  color: #333333
+}
+.msgList_doctor .zhiwei{
+  display: block;
+  font-size: 26rpx;
+  color: #666666;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+}
+.msgList_doctor .hospita{
+  display: block;
+  font-size: 26rpx;
+  color: #999999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fix-news{
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 99999;
+  margin: 0 auto;
+  border-top: #e2e2e2 1rpx solid;
+}
+.fix-news2{
+  position: fixed;
+  top:120rpx;
+  left: 0;
+  z-index: 99999;
+  padding-top: 0;
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid #e2e2e2;
+}
+.topnav{
+  position: fixed;
+  top: 85rpx;
+  z-index:99;
+  background: #fff;
+  width: 100%;
+}
+.fixed{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.navBox{
+  display: flex;
+  font-size: 24rpx;
+  color: #333333;
+  align-items: center;
+  padding: 40rpx 0;
+  border-bottom: 20rpx solid rgba(144,144,144,0.1)
+}
+.navBox>view{
+  flex: 1;
+  height: 100%;
+  text-align: center;
+}
+.navBox>view>view{
+  margin-top: 24rpx;
+}
+.navBox .sp{
+  width: 88rpx;
+  height: 81rpx;
+}
+.navBox .wd{
+  width: 83rpx;
+  height: 81rpx;
+}
+.navBox .wz{
+  width: 77rpx;
+  height: 81rpx;
+}
+.navBox .yp{
+  width: 72rpx;
+  height: 81rpx;
+}
+.nav_title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40rpx;
+}
+.nav_title text{
+ font-size: 36rpx;
+ font-weight: 600;
+ color: #333333;
+}
+.nav_title .tuijian{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 20rpx;
+}

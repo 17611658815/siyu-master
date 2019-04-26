@@ -1,0 +1,235 @@
+.page-body {
+  display: flex;
+  flex: 1;
+  position: fixed;
+  height: 100%;
+  flex-direction: column;
+  padding-bottom: 110rpx;
+  background: #f8f8f8;
+}
+/* 头部样式 */
+.userInfo{
+  width: 100%;
+  height: 350rpx;
+  position: relative;
+  z-index: 99;
+}
+.mineBg{
+  width: 100%;
+  height: 100%;
+}
+.user{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  text-align: center
+}
+.picBox{
+  width: 100%;
+  height: 400rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.picBox>view{
+  width:200rpx;
+  height: 200rpx;
+  background: rgba(255, 255, 255,.1);
+  border-radius: 50%;
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.picBox>view>view{
+  width: 170rpx;
+  height: 170rpx;
+  background: rgba(255, 255, 255,.2);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.picBox>view>view>view{
+  width: 140rpx;
+  height: 140rpx;
+  background: rgba(255, 255, 255,.3);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.picBox>view>view>view>view{
+  width: 116rpx;
+  height: 116rpx;
+  background: rgba(255, 255, 255,.4);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userPic{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  z-index: 1000;
+}
+.userName{
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 70%;
+  left: 0;
+  font-size: 30rpx;
+  color: #ffffff;
+}
+.msgBox{
+  width: 694rpx;
+  padding: 0 28rpx;
+  margin: 0 auto;
+  background: #ffffff;
+}
+.msgBox2{
+  width: 694rpx;
+  padding: 0 28rpx;
+  margin: 0 auto;
+  background: #ffffff;
+  margin-top: 20rpx;
+}
+.boder{
+  border-bottom: 1rpx solid #e2e2e2;
+}
+.msgList{
+  width: 100%;
+  height: 110rpx;
+  
+}
+.tagPic{
+  width: 42rpx;
+  height: 42rpx;
+  margin-top: 32rpx;
+}
+.msgTitle{
+  font-size: 30rpx;
+  color: #333333;
+  margin-left: 30rpx;
+  line-height: 110rpx;
+}
+.arrowRight{
+  width: 18rpx;
+  height: 30rpx;
+  margin-top: 40rpx;
+}
+.msgNum{
+  width: 38rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  color: #ffffff;
+  font-size: 28rpx;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 24rpx;
+  margin-top: 36rpx;
+}
+/*自定义tabbar样式*/
+.tabbar{
+  position: fixed;
+  display: -webkit-box;
+	display: -moz-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	bottom: 0;
+  left: 0;
+  right: 0rpx;
+  background-color: #ffffff;
+  height: 96rpx;
+  width: 100%;
+  border-top: 2rpx solid #ededed;
+}
+.barBtn{
+  flex: 1;
+}
+.btnIcon{
+  width: 46rpx;
+  height: 46rpx;
+  margin: 12rpx auto 10rpx;
+}
+.btnName{
+  font-size: 20rpx;
+  color: #999999;
+  line-height: 20rpx;
+  text-align: center;
+}
+.active{
+  color: #53a2ef;
+}
+
+
+
+/*模态窗口*/
+.modal{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0,0.6)
+}
+.dialogue{
+  width: 564rpx;
+  height: 440rpx;
+  border-radius: 16rpx;
+  margin: 198rpx auto 0;
+  padding-top: 84rpx;
+  background-color: #ffffff;
+  position: relative;
+}
+.close{
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  top: 30rpx;
+  right: 30rpx;
+}
+.diaPicBox{
+  width: 100%;
+  height: 160rpx;
+}
+.diaPic{
+  width: 140rpx;
+  height: 140rpx;
+  margin: 0 auto;
+}
+.prompt{
+  width: 100%;
+  text-align: center;
+  margin-top: 10rpx;
+}
+.proTitle{
+  font-size: 46rpx;
+  color: #3c3d41;
+  font-weight: 600;
+  line-height: 70rpx;
+}
+.time{
+  color: #898989;
+  font-size:24rpx;
+  line-height: 30rpx;
+  margin-top: 10rpx
+}
+.button{
+  width: 500rpx;
+  height: 94rpx;
+  margin: 44rpx auto 0;
+}
+.check{
+  font-size: 36rpx;
+  color: #ffffff;
+  background-color: #FF0036;
+}

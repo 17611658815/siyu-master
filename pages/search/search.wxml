@@ -1,0 +1,456 @@
+<!--pages/search/search.wxml-->
+<view class='container' wx:if="{{pageChange}}">
+
+  <!-- 搜索框 -->
+  <view class="searchBox">
+    <view class="search clearfix">
+      <input class="searchInput fl" bindinput='searchMsgs' placeholder-class="phcolor" placeholder="搜疾病 / 症状 / 专家"></input>
+      <text class="lineShu db fl"></text>
+      <image class="searchIcon fr" bindtap='searchIllness' src="../../images/search.png"></image>
+    </view>
+  </view>
+  <view style='height:100rpx;'></view>
+  <view class='related_box'>
+    <view wx:for="{{illnessList}}" bindtap='searchHot' data-value="{{item.tittle}}" data-id="{{item.id}}" wx:key='key' class='illness'>
+      {{item.tittle}}</view>
+  </view>
+  <!-- 热门搜索 -->
+  <view class='houSearch'>
+    <view>
+      <text>热门搜索</text>
+
+    </view>
+    <view>
+      <label bindtap='searchHot' wx:for="{{hotList}}" wx:key='key' data-value='{{item.tittle}}' >{{item.tittle}}</label>
+    </view>
+  </view>
+  <!-- 历史记录 -->
+  <view class='searchRecord' wx:if="{{searchRecord.length>0}}">
+    <view>历史记录</view>
+    <image bindtap='historyDelFn' src='../../images/delReaced.png'></image>
+  </view>
+  <view class='recordMsg'>
+    <label data-value="{{item}}" bindtap='searchHot2' wx:for="{{searchRecord}}" wx:key='key'>{{item}}</label>
+  </view>
+</view>
+<!-- 顶部导航 -->
+<view class='list static-news' wx:if="{{!pageChange}}">
+  <view>
+    <view wx:for="{{list}}" class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav" wx:key='key'>
+      <view>{{item}}</view>
+      <view wx:if="{{currentTab==index}}" class='solid'></view>
+    </view>
+  </view>
+</view>
+
+<scroll-view scroll-y="true" bindscrolltolower="pullUpLoad" wx:if="{{currentTab==0 && !pageChange}}">
+  <view class="page-body">
+    <!-- 导航 -->
+
+    <view style='height:145rpx'></view>
+    <!-- 相关疾病 -->
+    <view class='related'>
+      <view class='title' wx:if="{{searchHomeLists.illness.length>0}}">
+        <text>相关疾病</text>
+        <text bindtap="moreIllness">更多></text>
+      </view>
+      <view class='related_box'>
+        <view wx:for="{{searchHomeLists.illness}}" bindtap='goToillness2' data-id="{{item.id}}" data-value="{{item.name}}" data-title="{{item.name}}" data-name="{{item.name}}" class='illness' wx:key='key'>
+          {{item.name}}</view>
+      </view>
+    </view>
+    <!-- 相关疾病 -->
+    <!-- 相关医生 -->
+    <view class='relatedDoctor'>
+      <view class='title' wx:if="{{searchHomeLists.doctor.length>0}}">
+        <text>相关专家</text>
+        <text bindtap="moreDoctor">更多></text>
+      </view>
+      <view class='relatedDoctorBox'>
+
+      </view>
+      <view class='docTorInfo'>
+        <view class='docTorInfoBox' bindtap='goTodoctor' data-id="{{item.id}}" wx:for="{{searchHomeLists.doctor}}" wx:key='key'>
+          <view class='doctorPic'>
+            <image src='{{item.avatar}}'></image>
+          </view>
+          <view class='doctorName'>
+            <view>
+              <text>{{item.name}}</text>
+              <text>{{item.position}}</text>
+            </view>
+            <view>
+              <text>{{item.hospital}}</text>
+              <text>{{item.department}}</text>
+            </view>
+            <view>
+              <text>擅长</text>
+              <text>:</text>
+              <text>{{item.adept}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 相关医生 -->
+    <!-- 相关视频 -->
+    <view class='relatedvideo'>
+      <view class='title' wx:if="{{searchHomeLists.shipin.length>0}}">
+        <text>相关视频</text>
+        <text bindtap="moreVideo">更多></text>
+      </view>
+      <view class='box'>
+        <view class='videoBox' bindtap='goToVideo' data-id="{{item.id}}" wx:for="{{searchHomeLists.shipin}}" wx:key='key'>
+          <view class='msgList_box'>
+
+
+            <view class='msgList_msg'>
+              <view>
+                <image src='{{item.thumb}}'></image>
+                <text class='times' wx:if="{{item.duration!=''}}">{{item.duration}}</text>
+                <image class='Listplay' src='../../images/Listplay.png'></image>
+              </view>
+            </view>
+            <view class='msgList_title'>
+              <text>{{item.title}}</text>
+            </view>
+            <view class='msgList_doctor' wx:if="{{item.doctor != false}}">
+              <image src='{{item.doctor.avatar}}'></image>
+              <text class='doctorName'>{{item.doctor.name}}</text>
+              <text class='zhiwei'>{{item.doctor.position}}</text>
+              <text class='hospita'>{{item.doctor.hospital}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 相关视频 -->
+    <!-- 相关问答 -->
+    <view class='relatedask'>
+      <view class='title' wx:if="{{searchHomeLists.ask.length>0}}">
+        <text>相关问答</text>
+        <text bindtap="moreAsk">更多></text>
+      </view>
+      <view class='msgList'>
+        <view class='msgList_box' bindtap='goToAsk' data-id="{{item.id}}" wx:for="{{searchHomeLists.ask}}" wx:key='key'>
+          <view class='msgList_title'>
+            <image src='../../images/problem.png'></image>
+            <text class='problem'>{{item.title}}</text>
+          </view>
+          <view class='msgList_answer'>
+            <image src='../../images/da.png'></image>
+            <view class='articles'>
+              {{item.answer}}
+            </view>
+          </view>
+          <view class='msgList_doctor' wx:if="{{item.doctor != false}}">
+            <image src='{{item.doctor.avatar}}'></image>
+            <text class='doctorName'>{{item.doctor.name}}</text>
+            <text class='zhiwei'>{{item.doctor.position}}</text>
+            <text class='hospita'>{{item.doctor.hospital}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 相关问答 -->
+    
+    </view>
+    <!-- 相关音频 -->
+    <!-- 相关文章 -->
+    <view class='relatedarticle'>
+      <view class='title' wx:if="{{searchHomeLists.article.length>0}}">
+        <text>相关文章</text>
+        <text bindtap="moreArticle">更多></text>
+      </view>
+      <view class='msgList'>
+        <view class='msgList_box' bindtap='goToArticle' data-id="{{item.id}}" wx:for="{{searchHomeLists.article}}" wx:key='key'>
+          <view class='msgList_title'>
+            <text class='problem'>{{item.title}}</text>
+          </view>
+          <view class='msgList_answer'>
+            <view class='article'>
+              {{item.description}}
+            </view>
+          </view>
+          <view class='msgList_doctor' wx:if="{{item.doctor != false}}">
+            <image src='{{item.doctor.avatar}}'></image>
+            <text class='doctorName'>{{item.doctor.name}}</text>
+            <text class='zhiwei'>{{item.doctor.position}}</text>
+            <text class='hospita'>{{item.doctor.hospital}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 相关文章 -->
+    <!-- 相关音频 -->
+    <view class='relatedAudio'>
+      <view class='title' wx:if="{{searchHomeLists.yinpin.length>0}}">
+        <text>相关音频</text>
+        <text bindtap="moreAudio">更多></text>
+      </view>
+      <!-- 音频 -->
+      <view class='msgList'>
+        <view class='msgList_box' bindtap='goToAudio' data-id="{{item.id}}" wx:for="{{searchHomeLists.yinpin}}" wx:key='key'>
+          <view class='msgList_title'>
+            <image src='../../images/problem.png'></image>
+            <text class='problem'>{{item.title}}</text>
+          </view>
+          <view class='msgList_audio'>
+            <image class='answerlogo' src='../../images/da.png'></image>
+            <!-- 音频时长 -->
+            <view class='audio_time'>
+              <image src='../../images/audio.png'></image>
+              <text class='timertext'>语音时长</text>
+              <text class='timer'>{{item.yinpin_duration}}</text>
+            </view>
+            <!-- 音频播放量 -->
+            <view class='audiohot'>
+              <image src='../../images/headset.png'></image>
+              {{item.pv}}
+            </view>
+          </view>
+          <view class='msgList_doctor' wx:if="{{item.doctor != false}}">
+            <image src='{{item.doctor.avatar}}'></image>
+            <text class='doctorName'>{{item.doctor.name}}</text>
+            <text class='zhiwei'>{{item.doctor.position}}</text>
+            <text class='hospita'>{{item.doctor.hospital}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 音频 -->
+    <view class='nomsg2' wx:if="{{searchHomeLists.article.length == 0 && searchHomeLists.yinpin.length == 0 && searchHomeLists.ask.length==0 && searchHomeLists.shipin.length==0 && searchHomeLists.doctor.length==0 && searchHomeLists.illness.length==0}}">
+      <view>
+        <image src="../../images/nomsage.jpg"></image>
+        <view>抱歉，暂时还没有相关数据！ </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<!-- 疾病 -->
+<scroll-view scroll-y="true" bindscrolltolower="pullUpLoad" wx:if="{{currentTab==1}}">
+  <view class="page-body">
+    <view style='height:145rpx'></view>
+    <view class='related' wx:if="{{searchHomeList.illness.length>0}}">
+      <view class='related_box'>
+        <view wx:for="{{searchHomeList.illness}}" wx:key='key' bindtap='goToillness2' data-id="{{item.id}}" data-name="{{item.name}}" class='illness'>{{item.name}}</view>
+      </view>
+    </view>
+    <view class='nomsg' wx:if="{{searchHomeList.illness.length == 0}}">
+      <view>
+        <image src="../../images/nomsage.jpg"></image>
+        <view>抱歉，暂时还没有相关数据！ </view>
+      </view>
+    </view>
+  </view>
+  <view class='loadingStyle' style="display:{{isHide}};">加载中...</view>
+  <view class='BottomTost' wx:if="{{TostShow}}">我是有底线的~</view>
+   
+</scroll-view>
+<!-- 疾病 -->
+<!-- 医生 -->
+<scroll-view scroll-y="true" bindscrolltolower="pullUpLoad" wx:if="{{currentTab==2}}">
+  <view class="page-body">
+    <view style='height:145rpx'></view>
+    <view class='relatedDoctor' style='margin:0'>
+      <view class='docTorInfo' wx:if="{{searchHomeList.doctor.length>0}}">
+        <view class='docTorInfoBox' bindtap='goTodoctor' data-id="{{item.id}}" wx:for="{{searchHomeList.doctor}}" wx:key='key'>
+          <view class='doctorPic'>
+            <image src='{{item.avatar}}'></image>
+          </view>
+          <view class='doctorName'>
+            <view>
+              <text>{{item.name}}</text>
+              <text>{{item.position}}</text>
+            </view>
+            <view>
+              <text>{{item.hospital}}</text>
+              <text>{{item.department}}</text> </view>
+            <view>
+              <text>擅长</text>
+              <text>:</text>
+              <text>{{item.adept}}</text> </view>
+          </view>
+        </view>
+      </view>
+      <view class='nomsg' wx:if="{{searchHomeList.doctor.length == 0}}">
+        <view>
+          <image src="../../images/nomsage.jpg"></image>
+          <view>抱歉，暂时还没有相关数据！ </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='loadingStyle' style="display:{{isHide}};">加载中...</view>
+  <view class='BottomTost' wx:if="{{TostShow}}">我是有底线的~</view>
+    
+</scroll-view>
+<!-- 医生 -->
+<!-- 视频 -->
+<scroll-view scroll-y="true" bindscrolltolower="pullUpLoad" wx:if="{{currentTab==3}}">
+  <view class="page-body">
+    <view style='height:145rpx'></view>
+
+    <view class='relatedvideo' style='margin:0'>
+
+      <view class='box' wx:if="{{searchHomeList.shipin.length>0}}">
+
+        <view class='videoBox' bindtap='goToVideo' data-id="{{item.id}}" wx:for="{{searchHomeList.shipin}}" wx:key='key'>
+          <view class='msgList_box'>
+
+
+            <view class='msgList_msg'>
+              <view>
+                <image src='{{item.thumb}}'></image>
+                <text class='times'  wx:if="{{item.duration!=''}}">{{item.duration}}</text>
+                <image class='Listplay' src='../../images/Listplay.png'></image>
+              </view>
+            </view>
+            <view class='msgList_title'>
+              <text>{{item.title}}</text>
+            </view>
+            <view class='msgList_doctor' wx:if="{{item.doctor != false}}">
+              <image src='{{item.doctor.avatar}}'></image>
+              <text class='doctorName'>{{item.doctor.name}}</text>
+              <text class='zhiwei'>{{item.doctor.position}}</text>
+              <text class='hospita'>{{item.doctor.hospital}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='nomsg' wx:if="{{searchHomeList.shipin.length == 0}}">
+        <view>
+          <image src="../../images/nomsage.jpg"></image>
+          <view>抱歉，暂时还没有相关数据！ </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='loadingStyle' style="display:{{isHide}};">加载中...</view>
+  <view class='BottomTost' wx:if="{{TostShow}}">我是有底线的~</view>
+   
+</scroll-view>
+<!-- 视频 -->
+<!-- 问答 -->
+<scroll-view scroll-y="true" bindscrolltolower="pullUpLoad" wx:if="{{currentTab==4}}">
+  <view class="page-body">
+    <view style='height:145rpx'></view>
+    <view class='relatedask' style='margin:0'>
+      <view class='msgList' wx:if="{{searchHomeList.ask.length > 0}}">
+        <view class='msgList_box' bindtap='goToAsk' data-id="{{item.id}}" wx:for="{{searchHomeList.ask}}" wx:key='key'>
+          <view class='msgList_title'>
+            <image src='../../images/problem.png'></image>
+            <text class='problem'>{{item.title}}</text>
+          </view>
+          <view class='msgList_answer'>
+            <image src='../../images/da.png'></image>
+            <view class='articles'>
+              {{item.answer}}
+            </view>
+          </view>
+          <view class='msgList_doctor' wx:if="{{item.doctor != false}}">
+            <image src='{{item.doctor.avatar}}'></image>
+            <text class='doctorName'>{{item.doctor.name}}</text>
+            <text class='zhiwei'>{{item.doctor.position}}</text>
+            <text class='hospita'>{{item.doctor.hospital}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='nomsg' wx:if="{{searchHomeList.ask.length == 0}}">
+        <view>
+          <image src="../../images/nomsage.jpg"></image>
+          <view>抱歉，暂时还没有相关数据！ </view>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+  <view class='loadingStyle' style="display:{{isHide}};">加载中...</view>
+  <view class='BottomTost' wx:if="{{TostShow}}"> 我是有底线的~</view>
+   
+</scroll-view>
+<!-- 问答 -->
+<!-- 文章 -->
+<scroll-view scroll-y="true" bindscrolltolower="pullUpLoad" wx:if="{{currentTab==5}}">
+  <view class="page-body">
+    <view style='height:145rpx'></view>
+    <view class='relatedarticle' style='margin:0'>
+      <view class='msgList' wx:if="{{searchHomeList.article.length > 0}}">
+        <view class='msgList_box' bindtap='goToArticle' data-id="{{item.id}}" wx:for="{{searchHomeList.article}}" wx:key='key'>
+          <view class='msgList_title'>
+            <text class='problem'>{{item.title}}</text>
+          </view>
+          <view class='msgList_answer'>
+            <view class='article'>
+              {{item.description}}
+            </view>
+          </view>
+          <view class='msgList_doctor' wx:if="{{item.doctor != false}}">
+            <image src='{{item.doctor.avatar}}'></image>
+            <text class='doctorName'>{{item.doctor.name}}</text>
+            <text class='zhiwei'>{{item.doctor.position}}</text>
+            <text class='hospita'>{{item.doctor.hospital}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='nomsg' wx:if="{{searchHomeList.article.length == 0}}">
+        <view>
+          <image src="../../images/nomsage.jpg"></image>
+          <view>抱歉，暂时还没有相关数据！ </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <view class='loadingStyle' style="display:{{isHide}};">加载中...</view>
+  <view class='BottomTost' wx:if="{{TostShow}}">我是有底线的~</view>
+  
+</scroll-view>
+<!-- 文章 -->
+<!-- 音频 -->
+<scroll-view scroll-y="true" bindscrolltolower="pullUpLoad" wx:if="{{currentTab==6}}">
+  <view class="page-body">
+    <view style='height:145rpx'></view>
+    <view class='relatedAudio' style='margin:0'>
+      <!-- 音频 -->
+      <view class='msgList' wx:if="{{searchHomeList.yinpin.length > 0}}">
+        <view class='msgList_box' bindtap='goToAudio' data-id="{{item.id}}" wx:for="{{searchHomeList.yinpin}}">
+          <view class='msgList_title'>
+            <image src='../../images/problem.png'></image>
+            <text class='problem'>{{item.title}}</text>
+          </view>
+          <view class='msgList_audio'>
+            <image class='answerlogo' src='../../images/da.png'></image>
+            <!-- 音频时长 -->
+            <view class='audio_time'>
+              <image src='../../images/audio.png'></image>
+              <text class='timertext'>语音时长</text>
+              <text class='timer'>{{item.yinpin_duration}}</text>
+            </view>
+            <!-- 音频播放量 -->
+            <view class='audiohot'>
+              <image src='../../images/headset.png'></image>
+              {{item.pv}}
+            </view>
+          </view>
+          <view class='msgList_doctor' wx:if="{{item.doctor != false}}">
+            <image src='{{item.doctor.avatar}}'></image>
+            <text class='doctorName'>{{item.doctor.name}}</text>
+            <text class='zhiwei'>{{item.doctor.position}}</text>
+            <text class='hospita'>{{item.doctor.hospital}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='nomsg' wx:if="{{searchHomeList.yinpin.length == 0}}">
+        <view>
+          <image src="../../images/nomsage.jpg"></image>
+          <view>抱歉，暂时还没有相关数据！ </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='loadingStyle' style="display:{{isHide}};">加载中...</view>
+  <view class='BottomTost' wx:if="{{TostShow}}">我是有底线的~</view>
+   
+</scroll-view>
+<!-- 音频 -->

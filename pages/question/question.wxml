@@ -1,0 +1,62 @@
+<view class='page-body'>
+  <view class='answerLogo'>
+    <image src='../../images/Imageask.png'></image>
+  </view>
+  <!-- 文本域部分 -->
+  <view class='textArea'>
+    <textarea value='{{msages}}' bindinput="savemessage" placeholder='请详细描述您的症状，疾病或身体状况，便于医生精确分析，最少10个字'>
+
+    </textarea>
+  </view>
+  <!-- 图片上传 -->
+  <view class='uploadimg'>
+    <view class='uploadimgBox'>
+        <block wx:for="{{imgs}}" wx:if="{{imgs.length>0}}">
+          <image  class='addpic' data-index='{{index}}' src="{{item}}"></image>
+        </block>
+      <view class='addImg2' wx:if="{{canChoose}}" bindtap='chooseImageTap'>
+        <image style='width:100%;height:100%' src='../../images/addimage.png'></image>
+      </view>
+       <view class='addImg'wx:else bindtap='noChoose'>
+        <image style='width:100%;height:100%' src='../../images/addimage.png'></image>
+      </view>
+      <view class='addImgMsg'wx:if="{{imgs.length<=0}}">
+        <text>上传图片（症状部位、检查报告或其他资料）</text>
+        <text>仅您和医生登录后可见</text>
+      </view>
+
+    </view>
+  </view>
+  <!-- 患者基本信息 -->
+  <view class='patientMsg'>
+    <!-- 性别 -->
+    <view>
+      <text>性别</text>
+      <view style='width:35%'>
+        <label wx:for='{{radios}}' class="radio {{ index==sex ? 'on' : ''}}" data-index='{{index}}' data-value='{{item.label}}' bindtap="check">
+          {{item.value}}
+        </label>
+      </view>
+    </view>
+    <!-- 年龄 -->
+    <view>
+      <text>年龄</text>
+      <view>
+        <input type="number" value='{{age}}' bindinput='Patientage' type='text' placeholder="请输入年龄帮助医生诊断"></input>
+      </view>
+    </view>
+    <!-- 手机号 -->
+    <view class='phone'>
+      <text>手机号</text>
+      <view>
+        <input type="number" value='{{tel}}' bindinput='PatientTel' type='text' placeholder="医生相应第一时间通知您"></input>
+      </view>
+    </view>
+  </view>
+  <!-- commit -->
+   <button class='commit' bindtap="submitMessage">提交</button>
+</view>
+
+ <view class="msgBox" style="display:{{isHide}};">
+  <text class="errorMsg">{{errorMsg}}</text>
+</view> 

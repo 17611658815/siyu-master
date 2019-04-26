@@ -1,0 +1,109 @@
+<!--pages/article/article.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+<!-- 引入插件 -->
+<scroll-view scroll-y="true" bindscrolltolower="pullUpLoad">
+  <view class='page-body'>
+     <!-- 疾病信息 -->
+      <view class='color'>
+        <view class='videoTitle'>
+          <view>{{articleList.article.title}}</view>
+          <view>
+            <text>{{articleList.article.created}}</text>
+          </view>
+        </view>
+      </view>
+       <!-- 疾病信息 -->
+        <!-- 专家信息 -->
+      <view class='doctorInfo'>
+
+        <!-- <view class='InfoBox' wx:if="{{articleList.doctor!=false}}" data-id="{{articleList.doctor.id}}" bindtap='godoctorHomeanswer'>
+          <view>
+            <image src='{{articleList.doctor.avatar}}'></image>
+          </view>
+          <view>
+            <view>
+              <text>{{articleList.doctor.name}}</text>
+              <text>{{articleList.doctor.position}}</text>
+            <view>
+              <text>{{articleList.doctor.hospital}}</text>
+              <text>{{articleList.doctor.department}}</text> </view>
+          </view>
+        </view> -->
+         <view class='InfoBox' data-id="{{articleList.doctor.id}}" bindtap='godoctorHomeanswer'>
+          <view>
+            <image src='{{articleList.doctor.avatar}}'></image>
+          </view>
+          <view>
+            <view>
+              <text>{{articleList.doctor.name}}</text>
+              <text>{{articleList.doctor.position}}</text>
+            </view>
+            <view>
+              <text>{{articleList.doctor.hospital}}</text>
+              <text>{{articleList.doctor.department}}</text> </view>
+          </view>
+        </view>
+        <!-- 文章内容 -->
+        <view style='height:50rpx'  wx:if="{{articleList.doctor == false}}"></view>
+        <view class='title'>
+          <view>
+          <!--{{articleList.article.content}}-->
+          <!-- h5代码转小程序 -->
+          <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+          </view>
+        </view>
+      </view>
+    <!-- 专家信息 -->
+   
+     <!-- 相关推荐 -->
+    <view class='recommended'wx:if="{{articleList.relevant.length>0}}">
+      <view class='recommended-title' >相关文章</view>
+      <!-- 文章 -->
+    <view class='msgList'>
+      <view class='msgList_box' bindtap='goArticle' data-id="{{item.id}}" wx:for="{{articleList.relevant}}" wx:key='key'>
+        <view class='msgList_title'>
+          <text class='problem'>{{item.title}}</text>
+        </view>
+        <view class='msgList_answer'>
+          <view class='article'>
+           {{item.description}}
+          </view>
+        </view>
+        <view class='msgList_doctor' wx:if="{{item.doctor!=false}}">
+          <image src='{{item.doctor.avatar}}'></image>
+          <text class='doctorName'>{{item.doctor.name}}</text>
+          <text class='zhiwei'>{{item.doctor.position}}</text>
+          <text class='hospita'>{{item.doctor.hospital}}</text>
+        </view>
+      </view>
+    </view>
+     <view class='loadingStyle' style="display:{{isHide}};">加载中...</view>
+     <view class='BottomTost' wx:if="{{TostShow}}">我是有底线的~</view>
+    
+    <!-- 文章 -->
+    </view>
+   <!-- </view> -->
+    <!-- 相关推荐 -->
+
+  </view>
+</scroll-view>
+
+
+<view class="tabbar">
+  <view class="barBtn clearfix" bindtap='goidnex'>
+    <button class="btnName db">
+      <view class='iconBox'>
+        <image class="btnIcon db" src="../../images/sy.png"></image>
+      </view>
+      首页
+    </button>
+  </view>
+  <view class="barBtn clearfix">
+    <button class="btnName db" bindtap="onShareAppMessage" open-type='share'>
+      <view class='iconBox'>
+        <image class="btnIcon2 db" src="../../images/fx.png"></image>
+      </view>
+      分享
+    </button>
+  </view>
+</view>

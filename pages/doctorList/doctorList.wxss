@@ -1,0 +1,277 @@
+.page-body {
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background: #f8f8f8;
+}
+.header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #ffffff;
+  border-top: 1rpx solid  #e2e2e2;
+  padding: 20rpx 0;
+  z-index: 7777;
+  box-shadow:0 10rpx 20rpx #eee;
+}
+.docBox{
+  width: 90%;
+  margin: auto;
+  margin-top: 40rpx;
+  border-radius: 20rpx 20rpx 20rpx 20rpx;
+  box-shadow: 0px 0px 8px 6px #eee;
+}
+/* 搜搜框样式 */
+.searchBox{
+  width: 100%;
+}
+.search{
+  width: 690rpx;
+  margin: 0 auto;
+  height: 60rpx;
+  border-radius: 30rpx;
+  background: #f7f7f7;
+}
+.searchInput{
+  width: 550rpx;
+  height: 60rpx;
+  color: #999999;
+  padding: 0;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  margin-left: 35rpx;
+  border: none;
+}
+.phcolor{
+  color: #999999;
+}
+.lineShu{
+  height: 30rpx;
+  width: 2rpx;
+  background: #999999;
+  margin-top: 16rpx;
+}
+.searchIcon{
+  width: 32rpx;
+  height: 33rpx;
+  margin-top: 14rpx;
+  margin-right: 40rpx;
+}
+/* 导航条 */
+/*导航条样式  */
+.scrollBox{
+  width: 100%;
+  height: 72rpx;
+  background: #FFFFFF;
+  padding-top: 35rpx;
+}
+.weui-navbar{
+  width: 90%;
+  height: 72rpx;
+  margin: auto;
+  background: #FFFFFF;
+  white-space: nowrap;
+}
+.swiper-tab-list {
+  font-size: 32rpx;
+  display: inline-block;
+  margin-right: 7%;
+  position: relative;
+}
+.on{
+  color: #53a2ef;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+.solid{
+  width: 100%;
+  background: #53a2ef;
+  height: 6rpx;
+  border-radius: 40rpx 40rpx 40rpx 40rpx;
+  position: absolute;
+  margin-top: 13rpx;
+  left: 0;
+  top: 50rpx;
+}
+/* 医生列表 */
+.doctorList{
+  width: 100%;
+  background: #f8f8f8;
+  margin-top: 40rpx;
+}
+
+.doctorList .doctorMsg{
+  background: #ffffff;
+  border-radius: 20rpx 20rpx 0 0 ;
+  margin: auto;
+ 
+  display: flex;
+  padding: 30rpx 30rpx;
+}
+.doctorMsg>view:nth-child(1){
+  width: 100rpx;
+  height: 100%;
+  padding-top: 10rpx;
+}
+.doctorMsg>view:nth-child(2){
+  flex: 1;
+  margin-left: 20rpx;
+}
+.doctorMsg>view:nth-child(2)>view:nth-child(1)>text:nth-child(1){
+  font-size: 34rpx;
+}
+.doctorMsg>view:nth-child(2)>view:nth-child(1)>text:nth-child(2){
+  font-size: 28rpx;
+  color: #666666;
+  margin-left: 3%
+}
+.doctorMsg>view .hospital{
+  font-size: 26rpx;
+  color: #999999;
+  margin-top: 5rpx;
+}
+.information{
+  background: #ffffff;
+  border-radius: 0 0 20rpx 20rpx;
+  margin: auto;
+  padding: 30rpx 30rpx;
+  border-top: 1rpx solid #E0E0E0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.information label{
+  font-size: 28rpx;
+
+}
+.information label text:nth-child(2){
+  color: #53a2ef;
+  padding-left: 5rpx;
+}
+.doctorMsg>view .specialty{
+  font-size: 26rpx;
+  color: #666666;
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 2; /** 显示的行数 **/
+  overflow: hidden;  /* 隐藏超出的内容 */
+}
+.doctorMsg>view .specialty>text:nth-child(1){
+  color: #53a2ee;
+}
+.doctorMsg>view .specialty>text:nth-child(2){
+padding: 0 10rpx;
+}
+.doctorMsg>view .specialty>text:nth-child(3){
+  color: #333333;
+}
+.doctorMsg>view:nth-child(1) image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+   
+}
+/*自定义tabbar样式*/
+.tabbar{
+  position: fixed;
+  display: -webkit-box;
+	display: -moz-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	bottom: 0;
+  left: 0;
+  right: 0rpx;
+  background-color: #ffffff;
+  height: 96rpx;
+  width: 100%;
+  border-top: 2rpx solid #ededed;
+}
+.barBtn{
+  flex: 1;
+}
+.btnIcon{
+  width: 46rpx;
+  height: 46rpx;
+  margin: 12rpx auto 10rpx;
+}
+.btnName{
+  font-size: 20rpx;
+  color: #999999;
+  line-height: 20rpx;
+  text-align: center;
+}
+.active{
+  color: #53a2ef;
+}
+/*模态窗口*/
+.modal{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0,0.6)
+}
+.dialogue{
+  width: 564rpx;
+  height: 440rpx;
+  border-radius: 16rpx;
+  margin: 198rpx auto 0;
+  padding-top: 84rpx;
+  background-color: #ffffff;
+  position: relative;
+}
+.close{
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  top: 30rpx;
+  right: 30rpx;
+}
+.diaPicBox{
+  width: 100%;
+  height: 160rpx;
+}
+.diaPic{
+  width: 140rpx;
+  height: 140rpx;
+  margin: 0 auto;
+}
+.prompt{
+  width: 100%;
+  text-align: center;
+  margin-top: 10rpx;
+}
+.proTitle{
+  font-size: 46rpx;
+  color: #3c3d41;
+  font-weight: 600;
+  line-height: 70rpx;
+}
+.time{
+  color: #898989;
+  font-size:24rpx;
+  line-height: 30rpx;
+  margin-top: 10rpx
+}
+.button{
+  width: 500rpx;
+  height: 94rpx;
+  margin: 44rpx auto 0;
+}
+.check{
+  font-size: 36rpx;
+  color: #ffffff;
+  background-color: #FF0036;
+}

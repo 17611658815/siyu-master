@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/question/question",
+    "pages/doctorList/doctorList",
+    "pages/center/center",
+    "pages/search/search",
+    "pages/disease/disease",
+    "pages/video/video",
+    "pages/answer/answer",
+    "pages/audio/audio",
+    "pages/article/article",
+    "pages/doctorHomePage/doctorHomePage",
+    "pages/diseaseList/diseaseList",
+    "pages/mayquestions/mayquestions",
+    "pages/feedback/feedback",
+    "pages/attentionDoctor/attentionDoctor",
+    "pages/detailsproblem/detailsproblem",
+    "pages/classification/classification",
+    "pages/videohome/videohome",
+    "pages/askhome/askhome",
+    "pages/articlehome/articlehome",
+    "pages/audiohome/audiohome",
+    "pages/illness/illness",
+    "pages/impower/impower"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "民福康",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#53a2ef",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "健康科普",
+        "iconPath": "images/kepu.png",
+        "selectedIconPath": "images/kepu2.png"
+      },
+      {
+        "pagePath": "pages/doctorList/doctorList",
+        "text": "知名专家",
+        "iconPath": "images/doctorwxz.png",
+        "selectedIconPath": "images/doctorxz.png"
+      },
+      {
+        "pagePath": "pages/center/center",
+        "text": "个人中心",
+        "iconPath": "images/maycenter.png",
+        "selectedIconPath": "images/maycenter2.png"
+      }
+    ]
+  }
+}

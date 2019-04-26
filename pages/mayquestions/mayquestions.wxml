@@ -1,0 +1,62 @@
+
+<scroll-view class="content"  scroll-y="true" bindscrolltolower="pullUpLoad" wx:if="{{askList.length !=0 }}" >
+  <view class="page-body">
+  <!-- tab切换 -->
+    <view class='list'>
+    <view wx:for="{{list}}">
+      <text  class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav">{{item}}</text>
+    </view>
+  </view>
+  <!-- 我的问答 -->
+   <!-- 问答 -->
+   <view class='box' wx:if="{{currentTab==1}}" >
+    <view class='msgList'>
+      <view class='msgList_box' wx:for="{{haveanswer}}" data-id='{{item.id}}' bindtap='goTodetailsproblem'>
+        <view class='msgList_title'>
+          <image src='../../images/problem.png'></image>
+          <text class='problem'>{{item.question}}</text>
+        </view>
+        <view class='msgList_answer'>
+          <image src='../../images/da.png'></image>
+          <view class='articles'>
+            {{item.answer}}
+          </view>
+        </view>
+        <view class='msgList_doctor'>
+         <image src='{{item.doctor.avatar}}'></image>
+            <text class='doctorName'>{{item.doctor.name}}</text>
+            <text class='zhiwei'>{{item.doctor.position}}</text>
+            <text class='hospita'>{{item.doctor.hospital}}</text>
+        </view>
+      </view>
+    </view>
+    </view>
+    <!-- 问答 -->
+    <!-- 待回答 -->
+    <view class='waitinganswerBox' wx:if="{{currentTab==0}}" >
+        <view class='waitinganswer' data-id="{{item.id}}" bindtap='goTodetailsproblem'  wx:for="{{askList}}">
+             <view class='waitinganswerBox_content'>
+                <view>
+                  <view>
+                  <image src='../../images/problem.png'></image>
+                  </view>
+                  <view>{{item.question}}</view>
+                </view>
+                <view>{{item.created}}</view>
+
+             </view>
+        </view>
+    
+    </view>
+    <!-- 待回答 -->
+  </view>
+</scroll-view>
+
+
+
+<view class='pictureBox' wx:else>
+<image src='../../images/picture.png'></image>
+<view>您还没有提问过任何问题哦~</view>
+<button bindtap="goask">去提问</button>
+
+</view>

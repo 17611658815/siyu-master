@@ -1,0 +1,31 @@
+<!--pages/detailsproblem/detailsproblem.wxml-->
+<scroll-view class="content" scroll-y="true" bindscrolltolower="pullUpLoad">
+  <view class="page-body">
+    <view class='problem'>
+      <view>{{askInfo.question}}</view>
+      <view>
+        <image data-src="{{item}}" data-imgList="{{picList}}" bindtap="imgYu" wx:if="{{item!=''}}" wx:for="{{picList}}" src="{{item}}"></image>
+      </view>
+      <view>{{askInfo.created}}</view>
+    </view>
+    <view class='reply' wx:if="{{askInfo.doctor.avatar}}">
+      <view>
+        <image src="{{askInfo.doctor.avatar}}"></image>
+      </view>
+      <view>
+        <view>
+          <text>{{askInfo.doctor.name}}</text>
+        </view>
+        <view>
+          <text>{{askInfo.doctor.position}}</text>
+          <text>{{askInfo.doctor.hospital}}</text>
+          <text>{{askInfo.doctor.department}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='reply_tetx' wx:if="{{askInfo.doctor.avatar}}">
+      <view>{{askInfo.answer}}</view>
+      <view>{{askInfo.answer_created}}</view>
+    </view>
+  </view>
+</scroll-view>

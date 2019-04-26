@@ -1,0 +1,79 @@
+
+  <view class='page-body'>
+    <view class='header'>
+      <!-- 搜索框 -->
+      <view class="searchBox" bindtap='goToSearch'>
+        <view class="search clearfix" >
+          <input class="searchInput fl"  value='{{values}}' placeholder-class="phcolor" placeholder="搜索专家"></input>
+          <text class="lineShu db fl"></text>
+          <image class="searchIcon fr" src="../../images/search.png"></image>
+        </view>
+      </view>
+      <!-- 悬浮导航条 -->
+      <view class='scrollBox'>
+        <scroll-view scroll-x="true" class="weui-navbar">
+         <block>
+            <view wx:if="{{showflag}}" class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" bindtap='recommend' data-current="0">
+          <view>推荐</view>
+          <view wx:if="{{currentTab==0}}" class='solid'></view>
+            </view>
+          </block>
+          <block  wx:for="{{tabs}}" wx-for-index="idnex" wx:key='key'>
+            <view class="swiper-tab-list {{currentTab==index+1 ? 'on' : ''}}" data-current="{{index+1}}"  data-id="{{item.id}}" bindtap="swichNav">
+            <view>{{item.name}}</view>
+            <view wx:if="{{currentTab==index+1}}" class='solid'></view>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+    <view style='height:210rpx;'></view>
+    <!-- 专家信息 -->
+    <scroll-view class="content" scroll-y="true" bindscrolltolower="pullUpLoad">
+    <view class='doctorList' wx:for="{{doctorList}}" wx:if="{{item.shipin_nums>0 || item.question_nums>0 || item.article_nums>0 || item.record_nums>0}}" wx:key='key'>
+       <view class='docBox'>
+        <!-- <view class='doctorList' wx:for="{{doctorList}}" > -->
+      <view class='doctorMsg'  data-id="{{item.id}}" bindtap='godoctorHomePage'>
+       <!-- 专家头像 -->
+        <view>
+          <image src='{{item.avatar}}'></image>
+        </view>
+        <!-- 专家信息 -->
+        <view>
+          <view>
+            <text>{{item.name}}</text>
+            <text>{{item.position}}</text>
+          </view>
+          <view class='hospital'>{{item.hospital}}</view>
+          <view class='specialty'>
+            <text>擅长</text><text>:</text><text>{{item.adept}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='information'>
+        <label data-id="{{item.id}}" data-num="{{item.shipin_nums}}" bindtap='godoctorHomevideo'>
+          <text>视频</text>
+          <text>{{item.shipin_nums}}</text>
+        </label>
+        <!-- <label data-id="{{item.id}}" data-num="{{item.question_nums}}" bindtap='godoctorHomeanswer'>
+          <text>问答</text>
+          <text>{{item.question_nums}}</text>
+        </label> -->
+        <label data-id="{{item.id}}" data-num="{{item.article_nums}}" bindtap='godoctorHomearticle'>
+          <text>文章</text>
+          <text>{{item.article_nums}}</text>
+        </label>
+        <label data-id="{{item.id}}" data-num="{{item.record_nums}}" bindtap='godoctorHomeaudio'>
+          <text>音频</text>
+          <text>{{item.record_nums}}</text>
+        </label>
+      </view>
+      </view>
+    </view>
+     <view class='loadingStyle'style="display:{{isHide}};">加载中...</view>
+     <view class='BottomTost' wx:if="{{TostShow}}">我是有底线的~</view>
+   
+</scroll-view>
+
+  </view>
+

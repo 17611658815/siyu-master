@@ -1,0 +1,36 @@
+/* pages/impower/impower.wxss */
+.header {
+    margin: 90rpx 0 90rpx 50rpx;
+    text-align: center;
+    width: 650rpx;
+    height: 300rpx;
+    line-height: 450rpx;
+}
+
+.header image {
+    width: 200rpx;
+    height: 200rpx;
+}
+
+.content {
+    margin-left: 50rpx;
+    margin-bottom: 90rpx;
+}
+.content view:nth-child(1){
+  font-size: 35rpx;
+  color: #333333
+}
+.content text {
+    display: block;
+    margin-top: 30rpx;
+    font-size: 30rpx;
+    color: #666666
+}
+
+.bottom {
+    border-radius: 80rpx;
+    margin: 70rpx 50rpx;
+    background: #1eb91f;
+    font-size: 34rpx;
+    color: #ffffff;
+}

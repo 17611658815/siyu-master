@@ -1,0 +1,290 @@
+<import src="../../wxParse/wxParse.wxml" />
+<scroll-view scroll-y="true" style="width:100%;height: 100%;" scroll-y="true" bindscroll="scrollTopFun">
+  <view class="page-body">
+    <view wx:if='{{doctorinfos.doctor.shipin!=""}}'>
+      <view class='videoMag' wx:if="{{!boXShow}}">
+        <video id='video' bindended="bindended" bindplay='bindplay' autoplay="{{isplay}}" src="{{doctorinfos.doctor.shipin}}" objectFit="cover" poster='{{doctorinfos.doctor.brand_pic}}' controls style="width:100%;height:{{autoHeight}}px;">
+        </video>
+      </view>
+      <view class='videoLogoBox' wx:if="{{doctorinfos.doctor.name!=undefined}}"  style="width:100%;height:{{autoHeight}}px;" wx:if="{{boXShow}}">
+        <image class='doclogo' src='{{doctorinfos.doctor.brand_pic}}'></image>
+        <image class='Listplay' wx:if="{{doctorinfos.doctor.name!=undefined}}" bindtap='repPlay' src='../../images/Listplay.png'></image>
+        <view class='shade' wx:if="{{doctorinfos.doctor.name!=undefined}}" ></view>
+        <view class='timers' wx:if="{{!goIndex}}">{{doctorinfos.shipin.duration}}</view>
+      </view>
+    </view>
+    <image style="width:100%;height:{{autoHeight}}px;" src='{{doctorinfos.doctor.brand_pic}}' wx:if='{{doctorinfos.doctor.shipin==""}}'></image>
+
+    <view class='doctorInfo'>
+      <view>
+        <view>
+          <text>{{doctorinfos.doctor.name}}</text>
+          <text>{{doctorinfos.doctor.position}}</text>
+        </view>
+        <view>
+          <text>{{doctorinfos.doctor.hospital}}</text>
+          <text>{{doctorinfos.doctor.department}}</text>
+        </view>
+      </view>
+      <view class='focusBox'>
+
+        <view bindtap='onfocus' class='focus' wx:if="{{focus}}">
+          <image src='../../images/noFocus.png'></image>
+          <view>关注</view>
+        </view>
+
+        <view bindtap='nofocus' class='nofocus' wx:if="{{!focus}}">
+          <image src='../../images/Focus.png'></image>
+          <view>已关注</view>
+        </view>
+      </view>
+    </view>
+
+    <view id='list' class="list" wx:if="{{!fined}}">
+      <view>
+        <view wx:for="{{list}}" class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav" wx:key='key'>
+          <view>{{item}}</view>
+          <view wx:if="{{currentTab==index}}" class='solid'></view>
+        </view>
+      </view>
+    </view>
+    <view class='list fix-news' wx:else>
+      <view>
+        <text wx:for="{{list}}" class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav" wx:key='key'>{{item}}</text>
+      </view>
+    </view>
+
+    <view class='doctorInfos' wx:if="{{currentTab==0}}">
+      <view class='doctortitle'>
+        <view>个人简介</view>
+        <text class='tetxMsg' wx:if="{{show}}">{{introduction}}</text>
+        <text wx:if="{{show && doctorinfos.doctor.introduction.length>40}}" style='font-size:26rpx;color:#666666'>...</text>
+        <text class='tetxMsg' wx:if="{{!show}}">{{doctorinfos.doctor.introduction}}</text>
+        <text bindtap='unfold' wx:if="{{show && doctorinfos.doctor.introduction.length>40}}" class='unfold'>展开</text>
+        <text bindtap='packUp' wx:if="{{!show}}" class='unfold'>收起</text>
+      </view>
+    </view>
+
+    <view class='doctorInfos' wx:if="{{currentTab==0 }}">
+      <view class='doctortitle' style='border:none'>
+        <view>擅长疾病</view>
+        <text class='tetxMsg' wx:if="{{guideShow}}">{{adept}}</text>
+        <text wx:if="{{guideShow && doctorinfos.doctor.adept.length>40}}" style='font-size:26rpx;color:#666666'>...</text>
+        <text class='tetxMsg' wx:if="{{!guideShow}}">{{doctorinfos.doctor.adept}}</text>
+        <text bindtap='guideUnfold' wx:if="{{guideShow && doctorinfos.doctor.adept.length>40}}" class='unfold'>展开</text>
+        <text bindtap='guidePackUp' wx:if="{{!guideShow}}" class='unfold'>收起</text>
+      </view>
+    </view>
+
+    <view class='hotList' wx:if="{{currentTab==0}}">
+      <view class='boders' wx:if="{{doctorinfos.shipin == undefined && adept.length>0}}"></view>
+      <view class='videoBox' wx:if="{{doctorinfos.shipin}}">
+        <view class='titles'>
+          <image style='height:35rpx;' src='../../images/video.png'></image>
+          <text>视频</text>
+          <text bindtap='godoctorHomevideo'>更多></text>
+        </view>
+        <view class='msgList_box' wx:for="{{doctorinfos.shipin}}" data-class='1' data-id='{{item.id}}' bindtap='goToDetails' wx:key='key'>
+
+          <view class='msgList_msg'>
+            <view>
+              <image src='{{item.thumb}}'></image>
+              <text class='times' wx:if="{{item.duration != ''}}">{{item.duration}}</text>
+              <image class='Listplay' src='../../images/Listplay.png'></image>
+            </view>
+          </view>
+          <view class='msgList_title'>
+            <text>{{item.title}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- <view class='msgList' wx:if="{{doctorinfos.ask}}">
+        <view class='titles'>
+          <image src='../../images/answer.png'></image>
+          <text>问答</text>
+          <text bindtap='godoctorHomeanswer'>更多></text>
+        </view>
+        <view class='msgList_box' data-class='2' data-id='{{item.id}}' bindtap='goToDetails' wx:for="{{doctorinfos.ask}}">
+          <view class='msgList_title'>
+            <image src='../../images/problem.png'></image>
+            <text class='problem'>{{item.title}}</text>
+          </view>
+          <view class='msgList_answer'>
+            <image src='../../images/da.png'></image>
+            <view class='articles'>
+              {{item.answer}}
+            </view>
+          </view>
+        </view>
+      </view> -->
+
+      <view class='msgList' wx:if="{{doctorinfos.article}}">
+        <view class='titles'>
+          <image style='height:35rpx;' src='../../images/article.png'></image>
+          <text>文章</text>
+          <text bindtap='godoctorHomearticle'>更多></text>
+        </view>
+        <view class='msgList_box' data-class='3' data-id='{{item.id}}' bindtap='goToDetails' wx:for="{{doctorinfos.article}}" wx:key='key'>
+          <view class='msgList_title'>
+            <text class='problem'>{{item.title}}</text>
+          </view>
+          <view class='msgList_answer'>
+            <view class='article'>
+              {{item.description}}
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class='msgList' wx:if="{{doctorinfos.yinpin}}">
+        <view class='titles'>
+          <image style='height:35rpx;' src='../../images/audios.png'></image>
+          <text>音频</text>
+          <text bindtap='godoctorHomeaudio'>更多></text>
+        </view>
+        <view class='msgList_box' data-class='4' data-id='{{item.id}}' bindtap='goToDetails' wx:for="{{doctorinfos.yinpin}}" wx:key='key'>
+          <view class='msgList_title'>
+            <image src='../../images/problem.png'></image>
+            <text class='problem'>{{item.title}}</text>
+          </view>
+          <view class='msgList_audio'>
+            <image class='answerlogo' src='../../images/da.png'></image>
+
+            <view class='audio_time'>
+              <image src='../../images/audio.png'></image>
+              <text class='timertext'>语音时长</text>
+              <text class='timer'>{{item.yinpin_duration}}</text>
+            </view>
+
+            <view class='audiohot'>
+              <image src='../../images/headset.png'></image>
+              {{item.pv}}
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class='videoBox' wx:if="{{currentTab==1}}">
+      <view class='msgList_box' data-class='1' wx:if="{{doctorinfo.shipin.length>0}}" data-id='{{item.id}}' bindtap="goToDetails" wx:for="{{doctorinfo.shipin}}" wx:key='key'>
+
+
+        <view class='msgList_msg'>
+          <view>
+            <image src='{{item.thumb}}'></image>
+            <text class='times'>{{item.duration}}</text>
+            <image class='Listplay' src='../../images/Listplay.png'></image>
+          </view>
+        </view>
+        <view class='msgList_title'>
+          <text>{{item.title}}</text>
+        </view>
+      </view>
+      <view class='noMsgLogo' wx:if="{{doctorinfo.shipin.length == 0}}">
+        <view>
+          <image src='../../images/nomsage.jpg'></image>
+          <view>抱歉没有相关数据~</view>
+        </view>
+      </view>
+    </view>
+
+<!-- 
+    <view class='msgList' wx:if="{{currentTab==2}}">
+      <view class='msgList_box' data-class='2' wx:if="{{doctorinfo.ask.length>0}}" data-id='{{item.id}}' bindtap="goToDetails" wx:for="{{doctorinfo.ask}}">
+        <view class='msgList_title'>
+          <image src='../../images/problem.png'></image>
+          <text class='problem'>{{item.title}}</text>
+        </view>
+        <view class='msgList_answer'>
+          <image src='../../images/da.png'></image>
+          <view class='articles'>
+            {{item.answer}}
+          </view>
+        </view>
+      </view>
+      <view class='noMsgLogo' wx:if="{{doctorinfo.ask.length == 0}}">
+        <view>
+          <image src='../../images/nomsage.jpg'></image>
+          <view>抱歉没有相关数据~</view>
+        </view>
+      </view>
+    </view> -->
+
+    <view class='msgList' wx:if="{{currentTab==2}}">
+      <view class='msgList_box' wx:if="{{doctorinfo.article.length>0}}" data-class='3' data-id='{{item.id}}' bindtap="goToDetails" wx:for="{{doctorinfo.article}}" wx:key='key'>
+        <view class='msgList_title'>
+          <text class='problem'>{{item.title}}</text>
+        </view>
+        <view class='msgList_answer'>
+          <view class='article'>
+            {{item.description}}
+          </view>
+        </view>
+
+      </view>
+      <view class='noMsgLogo' wx:if="{{doctorinfo.article.length == 0}}">
+        <view>
+          <image src='../../images/nomsage.jpg'></image>
+          <view>抱歉没有相关数据~</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='msgList' wx:if="{{currentTab==3}}">
+      <view class='msgList_box' wx:if="{{doctorinfo.yinpin.length>0}}" data-class='4' data-id='{{item.id}}' bindtap="goToDetails" wx:for="{{doctorinfo.yinpin}}" wx:key='key'>
+        <view class='msgList_title'>
+          <image src='../../images/problem.png'></image>
+          <text class='problem'>{{item.title}}</text>
+        </view>
+        <view class='msgList_audio'>
+          <image class='answerlogo' src='../../images/da.png'></image>
+
+          <view class='audio_time'>
+            <image src='../../images/audio.png'></image>
+            <text class='timertext'>语音时长</text>
+            <text class='timer'>{{item.yinpin_duration}}</text>
+          </view>
+
+          <view class='audiohot'>
+            <image src='../../images/headset.png'></image>
+            {{item.pv}}
+          </view>
+        </view>
+      </view>
+      <view class='noMsgLogo' wx:if="{{doctorinfo.yinpin.length == 0}}">
+        <view>
+          <image src='../../images/nomsage.jpg'></image>
+          <view>抱歉没有相关数据~</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='loadingStyle' style="display:{{isHide}};">加载中...</view>
+    <view class='BottomTost' wx:if="{{TostShow}}">我是有底线的~</view>
+
+  </view>
+</scroll-view>
+<!-- <view style='height:60rpx'></view> -->
+
+
+<view class="tabbar">
+  <view class="barBtn clearfix" bindtap='goidnex'>
+    <button class="btnName db">
+      <view class='iconBox'>
+        <image class="btnIcon db" src="../../images/sy.png"></image>
+      </view>
+      首页
+    </button>
+  </view>
+  <view class="barBtn clearfix">
+    <button class="btnName db" bindtap="onShareAppMessage" open-type='share'>
+      <view class='iconBox'>
+        <image class="btnIcon2 db" src="../../images/fx.png"></image>
+      </view>
+      分享
+    </button>
+  </view>
+</view>
+<!-- <web-view src="{{url}}"></web-view> -->

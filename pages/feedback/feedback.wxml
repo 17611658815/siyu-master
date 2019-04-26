@@ -1,0 +1,33 @@
+<!--pages/feedback/feedback.wxml-->
+<view class="container">
+  <view class="areaBox">
+    <view class="inputBox">
+      <textarea class="input db" placeholder="欢迎反馈在使用过程中的问题,我们会积极改进,努力为大家提供更优质的服务~" placeholder-class="phcolor" bindinput="savemessage"></textarea>
+    </view>
+    <view class="btnBox">
+      <view class="imgBox clearfix">
+        <block wx:for="{{imgs}}" wx:key='key'>
+          <image class="feedPic db fl" src="{{item}}" style="margin-right:{{(index+1)%4==0 ? '0' : '12'}}px"></image>
+        </block>
+        <view class="feedpic feedAdd fl">
+          <view class="chooseImg db fl" bindtap="chooseImageTap"><image class='add' src='../../images/add.png'></image></view>
+          <view class="chooseImg db fl" wx:if="{{imgs.length>6}}" bindtap="noChoose">
+          <image class='add' src='../../images/add.png'></image></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="submitBox" wx:if="{{ submitTime == 1 }}">
+    <text class="submit db" bindtap="submitMessage">提交</text>
+  </view>
+  <view class="submitBox" wx:else>
+    <text class="submit db" bindtap="submitMessage">提交</text>
+  </view>
+</view> 
+
+
+
+ <!-- <view style='width:100rpx;height:100rpx'>
+    <image style='width:100%;height:100%' src="http://pic.39yst.com/group1/M00/25/D7/Pb832lkS52OAAaqpAAEE2USsVb4321.jpg"></image>
+</view>
+<image style='width:100rpx;height:100rpx' src="http://pic.39yst.com/group1/M00/25/D7/Pb832lkS52OAAaqpAAEE2USsVb4321.jpg"></image> -->

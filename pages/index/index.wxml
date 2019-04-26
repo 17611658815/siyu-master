@@ -1,0 +1,95 @@
+<!--index.wxml-->
+<scroll-view class="content" style="width:100%;height: 100%;" scroll-y="true" bindscroll="scrollTopFun">
+  <view class="page-body">
+    <view class="top">
+      <!-- 搜索框 -->
+      <view class="searchBox">
+        <view class="search clearfix" bindtap='goToSearch'>
+          <image class="searchIcon fr" src="../../images/search.png"></image>
+          <input class="searchInput fl" placeholder-class="phcolor" value='搜疾病 / 症状 / 专家'></input>
+          <text class="lineShu db fl"></text>
+        </view>
+      </view>
+      <!-- 轮播样式 -->
+      <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <swiper-item>
+          <view hover-class="navigator-hover">
+            <image class="slide-image" mode="widthFix" src="../../images/banner.jpg" />
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+    <!-- 顶部导航 -->
+    <view class='navBox'>
+      <view bindtap='goVideohoem'>
+        <view class='imgBox'>
+          <image class='sp' src='../../images/sp.png'></image>
+        </view>
+        <view class='titleBox'>科普视频</view>
+      </view>
+      <view bindtap='goAskhoem'>
+        <view class='imgBox'>
+          <image class='wd' src='../../images/wd.png'></image>
+        </view>
+        <view class='titleBox'>名医问答</view>
+      </view>
+      <view bindtap='goArticlehome'>
+        <view class='imgBox'>
+          <image class='wz' src='../../images/wz.png'></image>
+        </view>
+        <view class='titleBox'>专家文章</view>
+      </view>
+      <view bindtap='goAudiohome'>
+        <view class='imgBox'>
+          <image class='yp' src='../../images/yp.png'></image>
+        </view>
+        <view class='titleBox'>专家音频</view>
+      </view>
+    </view>
+    <!-- 热门疾病 -->
+    <view class="illnessListBox">
+      <view class="illnessListTitle clearfix">
+        <text class="illnessListName db fl">热门疾病</text>
+        <text class="illnessListRight db fr" bindtap='goTodiseaseList'>更多></text>
+      </view>
+      <view class="illnessList">
+        <block>
+          <text wx:for="{{illnessList}}" wx:key='key'  data-illnessId='{{item.id}}' data-name="{{item.name}}" bindtap="goToDisease" class="illnessName db fl">{{item.name}}</text>
+        </block>
+      </view>
+    </view>
+    <!-- 视频样式 -->
+    <view class='msgList'>
+      <view class='nav_title'>
+        <image class='tuijian' src='../../images/KPTJ.png'></image>
+        <text>科普推荐</text>
+      </view>
+      <view class='msgList_box' wx:for="{{homeList}}" wx:key='key' data-id="{{item.id}}" bindtap='goToDetails'>
+
+        <view class='msgList_msg'>
+          <view>
+            <image lazy-load='true' src='{{item.thumb}}'></image>
+            <text class='times' wx:if="{{item.duration != ''}}">{{item.duration}}</text>
+            <image class='Listplay' src='../../images/Listplay.png'></image>
+          </view>
+        </view>
+        <view class='msgList_title'>
+          <text>{{item.title}}</text>
+        </view>
+        <view style='height:30rpx' wx:if="{{item.doctor == false}}"></view>
+        <view class='msgList_doctor' wx:if="{{item.doctor != false}}">
+          <image src='{{item.doctor.avatar}}'></image>
+          <text class='doctorName'>{{item.doctor.name}}</text>
+          <text class='zhiwei'>{{item.doctor.position}}</text>
+          <text class='hospita'>{{item.doctor.hospital}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 视频样式 -->
+  </view>
+
+  <view class='loadingStyle' style="display:{{isHide}};">加载中...</view>
+  <view class='BottomTost' wx:if="{{TostShow}}">我是有底线的~</view>
+
+
+</scroll-view>

@@ -1,0 +1,88 @@
+<!--pages/answer/answer.wxml-->
+<scroll-view scroll-y="true" bindscrolltolower="pullUpLoad">
+  <view class='page-body'>
+    <view class='answer'>
+      <!-- 问题标题 -->
+      <view>
+        <view>{{askList.ask.title}}</view>
+        <view>
+          <text class='shijian'>{{askList.ask.created}}</text>
+        </view>
+      </view>
+      <!-- 问题描述 -->
+      <view>
+        <view>问题描述</view>
+        <view>{{askList.ask.question}}</view>
+        <view>医生回答</view>
+        <!-- 医生回答 -->
+        <view class='InfoBox' data-id="{{askList.doctor.id}}" bindtap='godoctorHomeanswer'>
+          <view>
+            <image src='{{askList.doctor.avatar}}'></image>
+          </view>
+          <view>
+            <view>
+              <text>{{askList.doctor.name}}</text>
+              <text>{{askList.doctor.position}}</text>
+            </view>
+            <view>
+              <text>{{askList.doctor.hospital}}</text>
+              <text>{{askList.doctor.department}}</text> </view>
+          </view>
+        </view>
+        <!-- 医生回答 -->
+        <view class='reply'>
+          {{askList.ask.answer}}
+        </view>
+      </view>
+    </view>
+    <!-- 问题描述 -->
+    <!-- 相关推荐 -->
+    <view class='recommended' wx:if="{{askList.relevant.length>0}}">
+      <view class='recommended-title'>相关问答</view>
+      <!-- 问答 -->
+      <view class='msgList'>
+        <view class='msgList_box' bindtap='goAsk' data-id="{{item.id}}" wx:for="{{askList.relevant}}" wx:key='key'>
+          <view class='msgList_title'>
+            <image src='../../images/problem.png'></image>
+            <text class='problem'>{{item.title}}</text>
+          </view>
+          <view class='msgList_answer'>
+            <image src='../../images/da.png'></image>
+            <view class='articles'>
+              {{item.answer}}
+            </view>
+          </view>
+          <view class='msgList_doctor'>
+            <image src='{{item.doctor.avatar}}'></image>
+            <text class='doctorName'>{{item.doctor.name}}</text>
+            <text class='zhiwei'>{{item.doctor.position}}</text>
+            <text class='hospita'>{{item.doctor.hospital}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 问答 -->
+      <view class='loadingStyle' style="display:{{isHide}};">加载中...</view>
+      <view class='BottomTost' wx:if="{{TostShow}}">我是有底线的~</view>
+    </view>
+    <!-- 相关推荐 -->
+
+  </view>
+</scroll-view>
+<view class="tabbar">
+  <view class="barBtn clearfix" bindtap='goidnex'>
+    <button class="btnName db">
+      <view class='iconBox'>
+        <image class="btnIcon db" src="../../images/sy.png"></image>
+      </view>
+      首页
+    </button>
+  </view>
+  <view class="barBtn clearfix">
+    <button class="btnName db" bindtap="onShareAppMessage" open-type='share'>
+      <view class='iconBox'>
+        <image class="btnIcon2 db" src="../../images/fx.png"></image>
+      </view>
+      分享
+    </button>
+  </view>
+</view>

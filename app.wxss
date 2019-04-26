@@ -1,0 +1,116 @@
+/**app.wxss**/
+page {
+  font-family: -apple-system-font, 'Microsoft YaHei', 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: #ffffff;
+} 
+.db{
+  display: block;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.clerafix{
+  display: table;/* 触发bfc,让div具有包裹性*/
+}
+.clerafix:before,.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* 底部tost弹框 */
+
+.BottomTost>image{
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 10rpx;
+
+}
+.BottomTost{
+  display: flex;
+  width: 100%;
+  height: 60rpx;
+	align-items: center;
+	justify-content: center;
+	color: #D4D4D4;
+  font-size: 26rpx;
+  margin: 15rpx 0;
+}
+.loadingStyle{ 
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #333333
+}
+.fixedIcon{
+  position: fixed;
+  bottom: 20rpx;
+  right: 20rpx;
+}
+
+/*自定义tabbar样式*/
+.tabbar{
+  position: fixed;
+  display: -webkit-box;
+	display: -moz-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+  bottom: 0;
+  left: 0;
+  right: 0rpx;
+  background-color: #ffffff;
+  height: 96rpx;
+  width: 100%;
+  border-top: 2rpx solid #ededed;
+  z-index: 9999999
+}
+.barBtn{
+  flex: 1;
+}
+.btnIcon{
+  width: 46rpx;
+  height: 46rpx;
+}
+.btnIcon2{
+  width: 42rpx;
+  height: 41rpx;
+}
+.btnName{
+  /* height: 30rpx; */
+  font-size: 20rpx;
+  color: #929294;
+  text-align: center;
+  background: none;
+  /* border: none; */
+  line-height: 30rpx;
+
+}
+.iconBox{
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: 8rpx 0; */
+  margin-top: 8rpx;
+  margin-bottom: 5rpx;
+}
+button::after{
+border: none;
+}

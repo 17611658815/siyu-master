@@ -1,0 +1,108 @@
+<import src="../../wxParse/wxParse.wxml" />
+<scroll-view class="content" scroll-y="true" bindscrolltolower="loadMore" bindscrolltoupper="refesh">
+  <view class="page-body">
+    <view class='contentBox'>
+  
+      <view class='videoMag' wx:if="{{!boXShow}}">
+        <video id='video' bindended="bindended" bindplay='bindplay' poster='{{videoMsg.shipin.thumb}}' autoplay="{{isplay}}" src="{{videoMsg.shipin.shipin}}" objectFit="cover" controls style="width:100%;height:{{autoHeight}}px;">
+        </video> 
+      </view>
+      <view class='videoLogoBox' style="width:100%;height:{{autoHeight}}px;" wx:if="{{boXShow}}">
+      <image  class='doclogo' src='{{videoMsg.shipin.thumb}}'></image>
+       <image class='Listplay'  wx:if="{{videoMsg.shipin.title!=undefined}}" bindtap='repPlay' src='../../images/Listplay.png'></image>
+      <view class='shade' wx:if="{{videoMsg.shipin.title!=undefined}}"></view>
+      <view class='timer' wx:if="{{!goIndex}}">{{videoMsg.shipin.duration}}</view>
+      <!-- <view bindtap='goidnex' wx:if="{{goIndex}}" class='goindex'>去首页逛逛</view> -->
+      </view>
+      <view class='color'>
+        <view class='videoTitle'>
+          <view>{{videoMsg.shipin.title}}</view>
+          <view>
+
+            <text>{{videoMsg.shipin.created}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class='doctorInfo'>
+        <view class='InfoBox' wx:if="{{videoMsg.doctor!=false}}" data-id="{{videoMsg.doctor.id}}" bindtap='godoctorHomeanswer'>
+          <view>
+            <image src='{{videoMsg.doctor.avatar}}'></image>
+          </view>
+          <view>
+            <view>
+              <text>{{videoMsg.doctor.name}}</text>
+              <text>{{videoMsg.doctor.position}}</text>
+            </view>
+            <view>
+              <text>{{videoMsg.doctor.hospital}}</text>
+              <text>{{videoMsg.doctor.department}}</text> </view>
+          </view>
+        </view>
+        <view style='height:30rpx' wx:if="{{videoMsg.doctor==false}}"></view>
+        <view class='title'>
+          <view>
+            视频内容
+          </view>
+          <view>
+            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class='recommended' wx:if="{{videoMsg.relevant.length>0}}">
+      <view class='recommended-title'>相关视频</view>
+
+      <view class='videoBox' bindtap="goVideo" data-id="{{item.id}}" wx:for="{{videoMsg.relevant}}" wx:key='key'>
+        <view class='msgList_box'>
+          <view class='msgList_msg'>
+            <view>
+              <image src='{{item.thumb}}'></image>
+              <text class='times' wx:if="{{item.duration != ''}}">{{item.duration}}</text>
+              <image class='Listplay' src='../../images/Listplay.png'></image>
+            </view>
+          </view>
+          <view class='msgList_title'>
+            <text>{{item.title}}</text>
+          </view>
+          <view style='height:30rpx' wx:if="{{item.doctor == false}}"></view>
+          <view class='msgList_doctor' wx:if="{{item.doctor != false}}">
+            <image src='{{item.doctor.avatar}}'></image>
+            <text class='doctorName'>{{item.doctor.name}}</text>
+            <text class='zhiwei'>{{item.doctor.position}}</text>
+            <text class='hospita'>{{item.doctor.hospital}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='loadingStyle' style="display:{{isHide}};">加载中...</view>
+      <view class='BottomTost' wx:if="{{TostShow}}"> 我是有底线的~</view>
+
+    </view>
+    <view>
+
+    </view>
+  </view>
+
+</scroll-view>
+
+<view class="tabbar">
+  <view class="barBtn clearfix" bindtap='goidnex'>
+    <button class="btnName db">
+      <view class='iconBox'>
+        <image class="btnIcon db" src="../../images/sy.png"></image>
+      </view>
+      首页
+    </button>
+  </view>
+  <view class="barBtn clearfix">
+    <button class="btnName db" bindtap="onShareAppMessage" open-type='share'>
+      <view class='iconBox'>
+        <image class="btnIcon2 db" src="../../images/fx.png"></image>
+      </view>
+      分享
+    </button>
+  </view>
+</view>
+
+<!-- <web-view src="{{url}}"></web-view> -->
